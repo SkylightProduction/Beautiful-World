@@ -12,6 +12,6 @@
 - Backport Beautiful World can only be done after receiving special permission from SuperFeda on the [Discrord server SkylightProduction](https://discord.gg/GFpmfNPPPy). Remember to write `The original mod code was created by SkylightProduction.` on the download page of your project.
 - Porting our mod to a new version in case it hasn't been updated for over a year is possible. Possible without any problems. You can use the mod code for such purposes. Just don't forget to write in your project description:
 `Idea author SkylightProduction, download the original mod.`
-- The mod can only be ported to Quilt after obtaining official permission (available from the [SkylightProduction discord server](https://discord.gg/GFpmfNPPPy)). After creating the mod and publishing it, leave this text in the description:
+- The mod can only be ported to Quilt after obtaining official permission (available from the [SkylightProduction Discord server](https://discord.gg/GFpmfNPPPy)). After creating the mod and publishing it, leave this text in the description:
 `Forge version of the mod: (link).`
 - Porting the mod to Fabric is not allowed.
