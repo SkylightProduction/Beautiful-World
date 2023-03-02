@@ -1,4 +1,4 @@
-# Beautiful world license
+# Beautiful world license (BWL)
 ## Distribution
 - Publishing the mod on unverified sites is forbidden. **(Only the [Aternos](https://aternos.org/) site is not banned.)**
 - The distribution and use of textures from BW is prohibited.
