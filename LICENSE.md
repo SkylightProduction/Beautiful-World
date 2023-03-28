@@ -4,7 +4,7 @@
 - The distribution and use of textures from BW is prohibited.
 - It is forbidden to use a modified version of the mod. This item can be ignored if you are using the mod as part of a modpack and only want to edit the crafting recipes or add (fix) translations. You can use such a version as long as you are allowed to do so under other licence clauses.
 ## Using
-- You can download the mod from CurseForge, PlanetMinecraft and Modrinth. You can also play it freely in a local or online game.
+- You can download the mod from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/beautiful-world), [PlanetMinecraft](https://www.planetminecraft.com/mod/beautiful-world-5893748/) and [Modrinth](https://modrinth.com/mod/beautiful-world). You can also play it freely in a local or online game.
 - You are free to use our mod in modpacks. But if you publish a modpack on sites other than CurseForge and Modrinth, in the description of the post, attach a link to our discord server. If there is no link, SuperFeda will personally contact the site administrator and ask to delete the post.
 - You can use Beautiful world code to create an addon for it without getting special permission.
 ## Porting and backporting
