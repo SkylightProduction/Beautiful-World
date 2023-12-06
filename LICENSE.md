@@ -1,6 +1,6 @@
 # Beautiful world license (BWL)
 ## Distribution
-- Publishing the mod on unverified sites is forbidden. **(Only the [Aternos](https://aternos.org/) site is not banned.)**
+- Publishing the mod on unverified sites is forbidden.
 - The distribution and use of textures from BW is prohibited.
 - It is forbidden to use a modified version of the mod. This item can be ignored if you are using the mod as part of a modpack and only want to edit the crafting recipes or add (fix) translations. You can use such a version as long as you are allowed to do so under other licence clauses.
 ## Using
