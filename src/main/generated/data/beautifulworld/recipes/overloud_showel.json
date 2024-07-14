@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "@": {
+      "item": "beautifulworld:overloud_ingot"
+    }
+  },
+  "pattern": [
+    " @ ",
+    " # ",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "beautifulworld:overloud_shovel"
+  }
+}

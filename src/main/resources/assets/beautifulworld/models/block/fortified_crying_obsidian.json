@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "beautifulworld:block/fortified_crying_obsidian",
+    "up": "beautifulworld:block/fortified_crying_obsidian",
+    "north": "beautifulworld:block/fortified_crying_obsidian2",
+    "east": "beautifulworld:block/fortified_crying_obsidian",
+    "south": "beautifulworld:block/fortified_crying_obsidian2",
+    "west": "beautifulworld:block/fortified_crying_obsidian",
+    "particle": "beautifulworld:block/fortified_crying_obsidian"
+  },
+  "render_type": "solid"
+}

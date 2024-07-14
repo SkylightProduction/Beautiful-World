@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "beautifulworld:item/netherite_multitool"
+  }
+}

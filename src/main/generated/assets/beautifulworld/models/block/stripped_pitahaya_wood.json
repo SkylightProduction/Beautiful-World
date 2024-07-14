@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "beautifulworld:block/stripped_pitahaya_log",
+    "side": "beautifulworld:block/stripped_pitahaya_log"
+  }
+}

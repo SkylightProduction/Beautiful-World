@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 300,
+  "experience": 0.7,
+  "group": "rhodium_ingot",
+  "ingredient": {
+    "item": "beautifulworld:rhodium_ore"
+  },
+  "result": {
+    "id": "beautifulworld:rhodium_ingot"
+  }
+}

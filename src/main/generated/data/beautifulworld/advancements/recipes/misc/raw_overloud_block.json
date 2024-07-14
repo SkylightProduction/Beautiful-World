@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_overloud": {
+      "conditions": {
+        "items": [
+          {
+            "items": "beautifulworld:raw_overloud"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:raw_overloud_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_overloud"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:raw_overloud_block"
+    ]
+  }
+}

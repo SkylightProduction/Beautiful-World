@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "beautifulworld:block/pitahaya_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "beautifulworld:block/pitahaya_wood"
+    },
+    "axis=z": {
+      "model": "beautifulworld:block/pitahaya_wood",
+      "x": 90
+    }
+  }
+}

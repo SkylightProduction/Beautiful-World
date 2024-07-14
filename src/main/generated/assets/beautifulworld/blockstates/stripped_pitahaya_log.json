@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "beautifulworld:block/stripped_pitahaya_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "beautifulworld:block/stripped_pitahaya_log"
+    },
+    "axis=z": {
+      "model": "beautifulworld:block/stripped_pitahaya_log_horizontal",
+      "x": 90
+    }
+  }
+}

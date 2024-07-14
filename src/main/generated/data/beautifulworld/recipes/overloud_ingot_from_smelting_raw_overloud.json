@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 300,
+  "experience": 0.7,
+  "group": "overloud_ingot",
+  "ingredient": {
+    "item": "beautifulworld:raw_overloud"
+  },
+  "result": {
+    "id": "beautifulworld:overloud_ingot"
+  }
+}

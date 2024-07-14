@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "@": {
+      "item": "beautifulworld:raw_overloud"
+    }
+  },
+  "pattern": [
+    "@@@",
+    "@@@",
+    "@@@"
+  ],
+  "result": {
+    "count": 1,
+    "id": "beautifulworld:raw_overloud_block"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "beautifulworld:block/bw_portal_ns"
+    },
+    "axis=z": {
+      "model": "beautifulworld:block/bw_portal_ew"
+    }
+  }
+}

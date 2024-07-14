@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 150,
+  "experience": 0.7,
+  "group": "overloud_ingot",
+  "ingredient": {
+    "item": "beautifulworld:overloud_ore"
+  },
+  "result": {
+    "id": "beautifulworld:overloud_ingot"
+  }
+}

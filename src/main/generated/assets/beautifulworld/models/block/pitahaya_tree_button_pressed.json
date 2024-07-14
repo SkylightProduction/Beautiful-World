@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_pressed",
+  "textures": {
+    "texture": "beautifulworld:block/pitahaya_tree_planks"
+  }
+}

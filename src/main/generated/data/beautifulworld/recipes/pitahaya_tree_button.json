@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "beautifulworld:pitahaya_tree_planks"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "beautifulworld:pitahaya_tree_button"
+  }
+}

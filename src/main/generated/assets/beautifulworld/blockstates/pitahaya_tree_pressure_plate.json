@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "beautifulworld:block/pitahaya_tree_pressure_plate"
+    },
+    "powered=true": {
+      "model": "beautifulworld:block/pitahaya_tree_pressure_plate_down"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "beautifulworld:pitahaya_tree_logs_items"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "beautifulworld:pitahaya_tree_planks"
+  }
+}

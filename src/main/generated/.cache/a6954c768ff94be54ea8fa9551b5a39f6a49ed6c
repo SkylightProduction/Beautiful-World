@@ -1,0 +1,21 @@
+// 1.20.6	2024-07-06T16:06:13.9094534	Beautiful World/Tags for minecraft:block
+dedadbd4e678077f5455fed34c369af42f02ef6d data\minecraft\tags\blocks\planks.json
+a6b80f5e911b34c1a018d3170aaea82f63ad6cf2 data\minecraft\tags\blocks\wooden_trapdoors.json
+81e4df5657b0054e7a3df8cafd301e1ac8936159 data\minecraft\tags\blocks\fences.json
+423003ee5753561a6e59db29ec1a72a87da46efe data\minecraft\tags\blocks\wooden_stairs.json
+81e4df5657b0054e7a3df8cafd301e1ac8936159 data\minecraft\tags\blocks\wooden_fences.json
+65910ae73e0e7d85e66a8dcf38709bd9f49628ed data\minecraft\tags\blocks\wooden_doors.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\blocks\mineable\shovel.json
+423003ee5753561a6e59db29ec1a72a87da46efe data\minecraft\tags\blocks\stairs.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\blocks\needs_diamond_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\blocks\needs_stone_tool.json
+dc4ce1a7b63f973c24148e651f3e50d6a6e23482 data\minecraft\tags\blocks\mineable\axe.json
+e9e3467ce6b7ea2ce9bd8c8e26b6b6080e5aa886 data\minecraft\tags\blocks\mineable\pickaxe.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\blocks\mineable\hoe.json
+e0319f0e350477d18eb952520dcb94d28afa5cd2 data\minecraft\tags\blocks\leaves.json
+dabd0c156b7bdf29229a7b3d1c90652e717fa559 data\minecraft\tags\blocks\buttons.json
+65910ae73e0e7d85e66a8dcf38709bd9f49628ed data\minecraft\tags\blocks\doors.json
+fa716eabe6d5a86a7c4ffd9d7098d61528fae8d5 data\minecraft\tags\blocks\logs.json
+a6b80f5e911b34c1a018d3170aaea82f63ad6cf2 data\minecraft\tags\blocks\trapdoors.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\blocks\needs_iron_tool.json
+f1bd0eb259dadb6e3f42537510ebb1b6b48cb203 data\minecraft\tags\blocks\fence_gates.json

@@ -1,0 +1,23 @@
+{
+    "feature": "beautifulworld:overloud_ore",
+    "placement": [
+        {
+            "type": "minecraft:in_square"
+        },
+        {
+            "type": "minecraft:height_range",
+            "height": {
+                "type": "minecraft:trapezoid",
+                "max_inclusive": {
+                    "absolute": 45
+                },
+                "min_inclusive": {
+                    "absolute": 20
+                }
+            }
+        },
+        {
+            "type": "minecraft:biome"
+        }
+    ]
+}

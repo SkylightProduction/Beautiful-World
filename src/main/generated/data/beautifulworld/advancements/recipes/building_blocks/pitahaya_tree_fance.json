@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pitahaya_tree_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "beautifulworld:pitahaya_tree_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_stick": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:stick"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:pitahaya_tree_fance"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stick",
+      "has_pitahaya_tree_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:pitahaya_tree_fance"
+    ]
+  }
+}
