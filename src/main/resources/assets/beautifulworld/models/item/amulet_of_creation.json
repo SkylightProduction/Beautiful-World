@@ -1,0 +1,28 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "beautifulworld:item/amulet_of_creation_zero"
+    },
+    "overrides": [
+        {
+            "predicate": {"aoc_stage": 0},
+            "model": "beautifulworld:item/amulet_of_creation_0"
+        },
+        {
+            "predicate": {"aoc_stage": 0.25},
+            "model": "beautifulworld:item/amulet_of_creation_1"
+        },
+        {
+            "predicate": {"aoc_stage": 0.5},
+            "model": "beautifulworld:item/amulet_of_creation_2"
+        },
+        {
+            "predicate": {"aoc_stage": 0.75},
+            "model": "beautifulworld:item/amulet_of_creation_3"
+        },
+        {
+            "predicate": {"aoc_stage": 1},
+            "model": "beautifulworld:item/amulet_of_creation_4"
+        }
+    ]
+}

@@ -16,9 +16,9 @@ import net.minecraft.world.dimension.DimensionTypes;
 import java.util.OptionalLong;
 
 public class BeautifulWorldDim {
-    public static final RegistryKey<DimensionOptions> BW_OPTIONS = RegistryKey.of(RegistryKeys.DIMENSION, new Identifier(BeautifulWorld.MOD_ID, "beautiful_world"));
-    public static final RegistryKey<World> BW_WORLD = RegistryKey.of(RegistryKeys.WORLD, new Identifier(BeautifulWorld.MOD_ID, "beautiful_world"));
-    public static final RegistryKey<DimensionType> BW_DIM_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE, new Identifier(BeautifulWorld.MOD_ID, "beautiful_world_type"));
+    public static final RegistryKey<DimensionOptions> BW_OPTIONS = RegistryKey.of(RegistryKeys.DIMENSION, Identifier.of(BeautifulWorld.MOD_ID, "beautiful_world"));
+    public static final RegistryKey<World> BW_WORLD = RegistryKey.of(RegistryKeys.WORLD, Identifier.of(BeautifulWorld.MOD_ID, "beautiful_world"));
+    public static final RegistryKey<DimensionType> BW_DIM_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE, Identifier.of(BeautifulWorld.MOD_ID, "beautiful_world_type"));
 
     public static void BWType(Registerable<DimensionType> context) {
         context.register(BW_DIM_TYPE, new DimensionType(

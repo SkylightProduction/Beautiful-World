@@ -19,6 +19,7 @@ public class BWItemGroups {
                 entries.add(BWItems.BAIKAL_WATER);
                 entries.add(BWItems.PITAHAYA);
                 entries.add(BWItems.AMULET_OF_CREATION);
+                entries.add(BWItems.OVERLOUD_UPGRADE_SMITHING_TEMPLATE);
             }).build();
 
 
@@ -71,5 +72,8 @@ public class BWItemGroups {
                 entries.add(BWItems.RHODIUM_SWORD);
                 entries.add(BWItems.RHODIUM_MULTITOOL);
                 entries.add(BWItems.NETHERITE_MULTI_TOOL);
+                entries.add(BWItems.CRYSTALLITE_PICKAXE);
+                entries.add(BWItems.CRYSTALLITE_SHOVEL);
+                entries.add(BWItems.CRYSTALLITE_AXE);
             }).build();
 }

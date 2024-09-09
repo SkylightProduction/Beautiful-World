@@ -29,6 +29,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
 public class BWBlocks {
+    /* settings */
     public static final Block.Settings INFECTED_BLOCK_SETTINGS = Block.Settings.create().sounds(BlockSoundGroup.MUD);
 
     // Korg blocks
@@ -173,22 +174,22 @@ public class BWBlocks {
 
 
 
-    public static BlockItem registerBlockItem(String name, Block block) {
+    private static BlockItem registerBlockItem(String name, Block block) {
         registerBlock(name, block);
-        return Registry.register(Registries.ITEM, new Identifier(BeautifulWorld.MOD_ID, name), new BlockItem(block, new Item.Settings()));
+        return Registry.register(Registries.ITEM, Identifier.of(BeautifulWorld.MOD_ID, name), new BlockItem(block, new Item.Settings()));
     }
 
-    public static BlockItem registerBlockItem(String name, Block block, Item.Settings settings) {
+    private static BlockItem registerBlockItem(String name, Block block, Item.Settings settings) {
         registerBlock(name, block);
-        return Registry.register(Registries.ITEM, new Identifier(BeautifulWorld.MOD_ID, name), new BlockItem(block, settings));
+        return Registry.register(Registries.ITEM, Identifier.of(BeautifulWorld.MOD_ID, name), new BlockItem(block, settings));
     }
 
-    public static Block registerBlock(String name, Block block) {
-        return Registry.register(Registries.BLOCK, new Identifier(BeautifulWorld.MOD_ID, name), block);
+    private static Block registerBlock(String name, Block block) {
+        return Registry.register(Registries.BLOCK, Identifier.of(BeautifulWorld.MOD_ID, name), block);
     }
 
-    public static CustomPortalBlock registerPortalBlock(String name, CustomPortalBlock block) {
-        return Registry.register(Registries.BLOCK, new Identifier(BeautifulWorld.MOD_ID, name), block);
+    private static CustomPortalBlock registerPortalBlock(String name, CustomPortalBlock block) {
+        return Registry.register(Registries.BLOCK, Identifier.of(BeautifulWorld.MOD_ID, name), block);
     }
 
     public static void registerModBlocks() {

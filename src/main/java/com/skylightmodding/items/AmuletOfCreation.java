@@ -1,83 +1,47 @@
 package com.skylightmodding.items;
 
+import com.skylightmodding.BeautifulWorld;
+import com.skylightmodding.init.BWDataComponents;
 import com.skylightmodding.worldgen.dimensions.BeautifulWorldDim;
 
-import net.minecraft.client.item.TooltipType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.StackReference;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
 import net.minecraft.util.ClickType;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeKeys;
 
 import java.util.List;
 
 public class AmuletOfCreation extends Item {
-    private static int /*IntProperty*/ STAGE_LVL;
-    // todo: fix this
     public AmuletOfCreation(Item.Settings settings) {
         super(settings);
     }
 
     @Override
-    public ItemStack getDefaultStack() {
-        ItemStack itemStack = super.getDefaultStack();
-//        itemStack.apply();
-        return itemStack;
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        ItemStack itemStack = user.getStackInHand(hand);
+
+        if (world.isClient()) {return TypedActionResult.success(itemStack);}
+
+        int stage = itemStack.getOrDefault(BWDataComponents.AMULET_OF_CREATION_STAGE, 0);
+        itemStack.set(BWDataComponents.AMULET_OF_CREATION_STAGE, stage == 4 ? stage : ++stage);
+
+        return TypedActionResult.success(itemStack);
     }
 
     @Override
-    public boolean onClicked(ItemStack stack, ItemStack otherStack, Slot slot, ClickType clickType, PlayerEntity player, StackReference cursorStackReference) {
-        RegistryEntry<Biome> thisBiome = player.getEntityWorld().getBiome(player.getBlockPos());
-
-        switch (STAGE_LVL) {
-            case 0: {
-                if (thisBiome == BiomeKeys.SOUL_SAND_VALLEY || thisBiome == BiomeKeys.CRIMSON_FOREST || thisBiome == BiomeKeys.NETHER_WASTES) {
-                    STAGE_LVL++;
-                }
-            }
-            case 1: {
-                if (thisBiome == BiomeKeys.END_HIGHLANDS || thisBiome == BiomeKeys.END_MIDLANDS || thisBiome == BiomeKeys.END_BARRENS) {
-                    STAGE_LVL++;
-                }
-            }
-            case 2: {
-                if (thisBiome == BiomeKeys.FOREST || thisBiome == BiomeKeys.GROVE || thisBiome == BiomeKeys.FLOWER_FOREST) {
-                    STAGE_LVL++;
-                }
-            }
-            case 3: {
-                if (thisBiome == BiomeKeys.DEEP_DARK && player.getEntityWorld().getDimensionEntry() == BeautifulWorldDim.BW_WORLD) {
-                    STAGE_LVL++;
-                }
-            }
-
-//            case 4: {
-//                Text.translatable("message.beautifulworld.amulet_of_creation");
-//            }
-        }
-
-        return true;
-    }
-
-//    @Override
-//    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-//        return super.use(world, user, hand);
-//    }
-
-    @Override
-    public void appendTooltip(ItemStack itemStack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
-        tooltip.add(Text.translatable("tooltip.beautifulworld.amulet_of_creation", stageConv(STAGE_LVL)).formatted(Formatting.GRAY));
-    }
-
-    private void updateItem(ItemStack itemStack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
-        STAGE_LVL++;
-        this.appendTooltip(itemStack, context, tooltip, options);
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("tooltip.beautifulworld.amulet_of_creation", stageConv(stack.getOrDefault(BWDataComponents.AMULET_OF_CREATION_STAGE, 0))).formatted(Formatting.GOLD));
     }
 
     private String stageConv(int stage) {

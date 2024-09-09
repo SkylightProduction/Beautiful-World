@@ -1,30 +1,27 @@
 package com.skylightmodding.init;
 
 import com.skylightmodding.BeautifulWorld;
-import com.skylightmodding.items.AmuletOfCreation;
-import com.skylightmodding.items.BaikalWaterItem;
-import com.skylightmodding.items.type.MultiToolItem;
-
+import com.skylightmodding.items.*;
+import com.skylightmodding.items.type.*;
 import com.skylightmodding.misc.BWArmorMaterial;
 import com.skylightmodding.misc.BWToolMaterials;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.client.item.TooltipType;
+
 import net.minecraft.component.type.FoodComponent;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.*;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Optional;
 
 public class BWItems {
     // Ore
@@ -74,18 +71,7 @@ public class BWItems {
     );
     public static final Item OVERLOUD_PICKAXE = registerItem(
         "overloud_pickaxe",
-        new PickaxeItem(BWToolMaterials.OVERLOUD, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(BWToolMaterials.OVERLOUD, 7, -2.8F))) {
-            @Override public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
-                super.postMine(stack, world, state, pos, miner);
-
-//                new RecipeManager.load();
-
-                Block broken_block = state.getBlock();
-                broken_block.asItem();
-
-                return true;
-            }
-        }
+        new PickaxeItem(BWToolMaterials.OVERLOUD, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(BWToolMaterials.OVERLOUD, 7, -2.8F)))
     );
     public static final Item OVERLOUD_AXE = registerItem(
             "overloud_axe",
@@ -99,15 +85,19 @@ public class BWItems {
             "overloud_shovel",
             new ShovelItem(BWToolMaterials.OVERLOUD, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(BWToolMaterials.OVERLOUD, 3.5f, -2.0F)))
     );
+    public static final Item OVERLOUD_UPGRADE_SMITHING_TEMPLATE = registerItem(
+            "overloud_upgrade_smithing_template",
+            BWSmithingTemplateItem.createOverloudUpgrade()
+    );
 
     // rhodium
     public static final Item RHODIUM_SWORD = registerItem(
         "rhodium_sword",
-        new SwordItem(BWToolMaterials.RHODIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(BWToolMaterials.RHODIUM, 5, -2.4F))) {
+        new SwordItem(BWToolMaterials.RHODIUM, new Item.Settings().rarity(Rarity.RARE).attributeModifiers(SwordItem.createAttributeModifiers(BWToolMaterials.RHODIUM, 5, -2.4F))) {
             @Override
             public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-                if (!target.isFireImmune()) { target.setOnFireFor(5); }
-                stack.damage(1, attacker, EquipmentSlot.MAINHAND);
+                super.postHit(stack, target, attacker);
+                if (!target.isFireImmune()) { target.setOnFireFor(6); }
 
                 return true;
             }
@@ -115,7 +105,21 @@ public class BWItems {
     );
     public static final Item RHODIUM_MULTITOOL = registerItem(
             "rhodium_multitool",
-            new MultiToolItem(BWToolMaterials.RHODIUM, new Item.Settings().attributeModifiers(MultiToolItem.createAttributeModifiers(BWToolMaterials.RHODIUM, 2.5f, -2.8F)))
+            new FieryMultiTool(BWToolMaterials.RHODIUM, new Item.Settings().rarity(Rarity.RARE).attributeModifiers(MultiToolItem.createAttributeModifiers(BWToolMaterials.RHODIUM, 2.5f, -2.8F)))
+    );
+
+    // crytallite
+    public static final Item CRYSTALLITE_PICKAXE = registerItem(
+            "crystallite_pickaxe",
+            new Tool3x3(BWToolMaterials.CRYSTALLITE, BlockTags.PICKAXE_MINEABLE, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(BWToolMaterials.CRYSTALLITE, 2.5f, -2.8F)))
+    );
+    public static final Item CRYSTALLITE_SHOVEL = registerItem(
+            "crystallite_shovel",
+            new CrystalliteShovelItem(BWToolMaterials.CRYSTALLITE, BlockTags.SHOVEL_MINEABLE, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(BWToolMaterials.CRYSTALLITE, 0.5f, -2.0F)))
+    );
+    public static final Item CRYSTALLITE_AXE = registerItem(
+            "crystallite_axe",
+            new CrystalliteAxeItem(BWToolMaterials.CRYSTALLITE, BlockTags.AXE_MINEABLE, new Item.Settings().attributeModifiers(AxeItem.createAttributeModifiers(BWToolMaterials.CRYSTALLITE, 3.0f, -3.2F)))
     );
 
     // other
@@ -125,34 +129,31 @@ public class BWItems {
     );
     public static final Item PITAHAYA = registerItem(
         "pitahaya",
-        new Item(new Item.Settings().food(new FoodComponent(5, 4.5f, true, 1.6f, List.of()))) {
-            @Override
-            public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+        new Item(new Item.Settings().food(new FoodComponent(5, 4.5f, true, 1.6f, Optional.of(ItemStack.EMPTY), null))) {
+            @Override public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
                 user.addStatusEffect(new StatusEffectInstance(BWStatusEffects.IMMUNITY, 2400, 0));
-                if (user.hasStatusEffect(BWStatusEffects.INFECTION)) { user.removeStatusEffect(BWStatusEffects.INFECTION); }
+
+                if (user.hasStatusEffect(BWStatusEffects.INFECTION)) {
+                    user.removeStatusEffect(BWStatusEffects.INFECTION);
+                }
 
                 return super.finishUsing(stack, world, user);
             }
         }
     );
     public static final Item BAIKAL_WATER = registerItem(
-        "baikal_water",
-        new BaikalWaterItem(new Item.Settings()) {
-            @Override
-            public void appendTooltip(ItemStack itemStack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
-                tooltip.add(Text.translatable("tooltip.beautifulworld.baikal_water").formatted(Formatting.GRAY));
-            }
-        }
+            "baikal_water",
+            new BaikalWaterItem(new Item.Settings())
     );
     public static final Item AMULET_OF_CREATION = registerItem(
             "amulet_of_creation",
-            new AmuletOfCreation(new Item.Settings())
+            new AmuletOfCreation(new Item.Settings().maxCount(1).rarity(Rarity.EPIC).component(BWDataComponents.AMULET_OF_CREATION_STAGE, 0))
     );
 
 
 
     public static Item registerItem(String name, Item item) {
-        return Registry.register(Registries.ITEM, new Identifier(BeautifulWorld.MOD_ID, name), item);
+        return Registry.register(Registries.ITEM, Identifier.of(BeautifulWorld.MOD_ID, name), item);
     }
 
     public static void registerModItems() {

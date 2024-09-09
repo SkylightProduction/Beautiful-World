@@ -6,4 +6,6 @@ public class InfectedBlock extends Block {
     public InfectedBlock(Block.Settings settings) {
         super(settings);
     }
+
+    // TODO: Сделать возможность распространения
 }

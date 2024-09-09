@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "beautifulworld:overloud_ingot"
+    },
+    "@": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "pattern": [
+    " @ ",
+    "@#@",
+    " @ "
+  ],
+  "result": {
+    "count": 1,
+    "id": "beautifulworld:overloud_upgrade_smithing_template"
+  }
+}

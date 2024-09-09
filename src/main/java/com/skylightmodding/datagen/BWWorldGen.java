@@ -19,7 +19,7 @@ public class BWWorldGen extends FabricDynamicRegistryProvider {
     }
 
     @Override
-    public String getName() { // я не знаю что это
-        return "World Gen";
+    public String getName() {
+        return "beautiful_world";
     }
 }

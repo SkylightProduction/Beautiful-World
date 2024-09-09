@@ -1,6 +1,8 @@
 package com.skylightmodding.misc;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
@@ -8,11 +10,13 @@ import net.minecraft.registry.tag.TagKey;
 
 import com.skylightmodding.init.BWItems;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public enum BWToolMaterials implements ToolMaterial {
-    OVERLOUD(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 2314, 20.0f, 2.0f, 18, () -> BWItems.OVERLOUD_INGOT),
-    RHODIUM(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 1583, 8.0f, 2.0f, 16, () -> BWItems.RHODIUM_INGOT);
+    OVERLOUD(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 2314, 20.0f, 2.0f, 19, () -> {return Ingredient.ofItems(new ItemConvertible[]{BWItems.OVERLOUD_INGOT});}),
+    RHODIUM(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 1583, 8.0f, 2.0f, 16, () -> {return Ingredient.ofItems(new ItemConvertible[]{BWItems.RHODIUM_INGOT});}),
+    CRYSTALLITE(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 864, 7.35f, 2.0f, 10, () -> {return Ingredient.ofItems(new ItemConvertible[]{BWItems.CRYSTALLITE});});
 
     private final TagKey<Block> inverseTag;
     private final int itemDurability;
@@ -27,7 +31,7 @@ public enum BWToolMaterials implements ToolMaterial {
         this.miningSpeed = miningSpeed;
         this.attackDamage = attackDamage;
         this.enchantability = enchantability;
-        this.repairIngredient = repairIngredient;
+        this.repairIngredient = repairIngredient; // во тут баг был, из-за которого игра крашилась, ну я его пофиксил крч. Можете спать спокойно.
     }
 
     public int getDurability() { return this.itemDurability; }

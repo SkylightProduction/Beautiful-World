@@ -57,6 +57,7 @@ public class BWModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(BWItems.OVERLOUD_HOE, Models.HANDHELD);
         itemModelGenerator.register(BWItems.OVERLOUD_INGOT, Models.GENERATED);
         itemModelGenerator.register(BWItems.RAW_OVERLOUD, Models.GENERATED);
+        itemModelGenerator.register(BWItems.OVERLOUD_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
         itemModelGenerator.registerArmor((ArmorItem) BWItems.OVERLOUD_HELMET);
         itemModelGenerator.registerArmor((ArmorItem) BWItems.OVERLOUD_CHESTPLATE);
         itemModelGenerator.registerArmor((ArmorItem) BWItems.OVERLOUD_LEGGINGS);
@@ -66,6 +67,11 @@ public class BWModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(BWItems.RHODIUM_SWORD, Models.HANDHELD);
         itemModelGenerator.register(BWItems.RHODIUM_MULTITOOL, Models.HANDHELD);
         itemModelGenerator.register(BWItems.RHODIUM_INGOT, Models.GENERATED);
+
+        // crystallite
+        itemModelGenerator.register(BWItems.CRYSTALLITE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(BWItems.CRYSTALLITE_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(BWItems.CRYSTALLITE_AXE, Models.HANDHELD);
 
         // korg
         itemModelGenerator.register(BWItems.KORG_FRAGMENT, Models.GENERATED);

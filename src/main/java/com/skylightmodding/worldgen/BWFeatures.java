@@ -13,11 +13,11 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.PlacedFeature;
 
 public class BWFeatures {
-    public static final RegistryKey<PlacedFeature> RHODIUM_ORE_FEATURE = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(BeautifulWorld.MOD_ID, "rhodium_ore"));
-    public static final RegistryKey<PlacedFeature> OVERLOUD_ORE_FEATURE = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(BeautifulWorld.MOD_ID, "overloud_ore"));
+    public static final RegistryKey<PlacedFeature> RHODIUM_ORE_FEATURE = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(BeautifulWorld.MOD_ID, "rhodium_ore"));
+    public static final RegistryKey<PlacedFeature> OVERLOUD_ORE_FEATURE = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(BeautifulWorld.MOD_ID, "overloud_ore"));
 
-    public static void placedFeatureReg() {
-        BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), GenerationStep.Feature.UNDERGROUND_ORES, RHODIUM_ORE_FEATURE);
+    public static void registerPlacedFeature() {
+        BiomeModifications.addFeature(BiomeSelectors.tag(BWTags.Biomes.RHODIUM_ORE_GEN_BIOMES), GenerationStep.Feature.UNDERGROUND_ORES, RHODIUM_ORE_FEATURE);
         BiomeModifications.addFeature(BiomeSelectors.tag(BWTags.Biomes.OVERLOUD_ORE_GEN_BIOMES), GenerationStep.Feature.UNDERGROUND_ORES, OVERLOUD_ORE_FEATURE);
     }
 }

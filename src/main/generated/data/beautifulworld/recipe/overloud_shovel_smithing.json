@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "beautifulworld:overloud_ingot"
+  },
+  "base": {
+    "item": "minecraft:netherite_shovel"
+  },
+  "result": {
+    "count": 1,
+    "id": "beautifulworld:overloud_shovel"
+  },
+  "template": {
+    "item": "beautifulworld:overloud_upgrade_smithing_template"
+  }
+}

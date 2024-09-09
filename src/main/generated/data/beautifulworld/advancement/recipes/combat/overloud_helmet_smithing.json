@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_overloud_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "beautifulworld:overloud_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:overloud_helmet_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_overloud_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:overloud_helmet_smithing"
+    ]
+  }
+}

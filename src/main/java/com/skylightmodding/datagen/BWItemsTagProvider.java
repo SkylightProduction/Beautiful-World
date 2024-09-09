@@ -6,6 +6,7 @@ import com.skylightmodding.init.BWItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 
+import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 
@@ -52,6 +53,10 @@ public class BWItemsTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.CHEST_ARMOR)
                 .add(BWItems.OVERLOUD_CHESTPLATE)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.TRIM_TEMPLATES)
+                .add(BWItems.OVERLOUD_UPGRADE_SMITHING_TEMPLATE)
         ;
     }
 }
