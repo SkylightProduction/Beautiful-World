@@ -62,7 +62,7 @@ public class BWBlocks {
     // rhodium blocks
     public static final BlockItem RHODIUM_ORE = registerBlockItem(
             "rhodium_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(4, 9), Block.Settings.copy(Blocks.NETHER_QUARTZ_ORE).strength(30.0F, 1200.0F))
+            new ExperienceDroppingBlock(UniformIntProvider.create(4, 9), Block.Settings.copy(Blocks.NETHER_QUARTZ_ORE).strength(32.0F, 1200.0F))
     );
     public static final BlockItem RHODIUM_BLOCK = registerBlockItem(
             "rhodium_block",

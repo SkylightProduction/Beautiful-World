@@ -1,10 +1,7 @@
 package com.skylightmodding.items;
 
-import com.skylightmodding.items.type.Tool3x3;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.CampfireBlock;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -18,21 +15,28 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
-
 import java.util.ArrayList;
-import java.util.Map;
 
-public class CrystalliteShovelItem extends Tool3x3 {
-    protected static final Map<Block, BlockState> PATH_STATES;
+import com.skylightmodding.items.components.ToolModifications;
 
-    public CrystalliteShovelItem(ToolMaterial toolMaterial, TagKey<Block> mineable, Item.Settings settings) {
-        super(toolMaterial, mineable, settings);
+public class CrystalliteShovelItem extends ShovelItem {
+    private final TagKey<Block> MINEABLE;
+
+    public CrystalliteShovelItem(ToolMaterial toolMaterial, TagKey<Block> tag, Item.Settings settings) {
+        super(toolMaterial, settings);
+        this.MINEABLE = tag;
     }
 
-    @Override public ActionResult useOnBlock(ItemUsageContext context) {
-        // TODO Я сам не совсем понимаю как это работает. Лучше это переписать.
+    @Override
+    public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
+        super.postMine(stack, world, state, pos, miner);
+        ToolModifications.mine3x3(world, pos, miner, MINEABLE);
+        return true;
+    }
+
+    @Override
+    public ActionResult useOnBlock(ItemUsageContext context) {
+        // Я сам не совсем понимаю как это работает. Лучше это переписать.
 
         boolean blockReplaced = false;
         World world = context.getWorld();
@@ -96,9 +100,5 @@ public class CrystalliteShovelItem extends Tool3x3 {
 
             return blockReplaced ? ActionResult.success(world.isClient) : ActionResult.PASS;
         }
-    }
-
-    static {
-        PATH_STATES = Maps.newHashMap((new ImmutableMap.Builder()).put(Blocks.GRASS_BLOCK, Blocks.DIRT_PATH.getDefaultState()).put(Blocks.DIRT, Blocks.DIRT_PATH.getDefaultState()).put(Blocks.PODZOL, Blocks.DIRT_PATH.getDefaultState()).put(Blocks.COARSE_DIRT, Blocks.DIRT_PATH.getDefaultState()).put(Blocks.MYCELIUM, Blocks.DIRT_PATH.getDefaultState()).put(Blocks.ROOTED_DIRT, Blocks.DIRT_PATH.getDefaultState()).build());
     }
 }

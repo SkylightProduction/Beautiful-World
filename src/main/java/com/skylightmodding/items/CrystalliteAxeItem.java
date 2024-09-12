@@ -2,7 +2,8 @@ package com.skylightmodding.items;
 
 import com.google.common.collect.BiMap;
 
-import com.skylightmodding.items.type.Tool3x3;
+import com.skylightmodding.items.components.ToolModifications;
+
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
@@ -24,10 +25,6 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class CrystalliteAxeItem extends AxeItem {
-    /**
-     {@link CrystalliteAxeItem} унаследован от {@link AxeItem}, а не от {@link com.skylightmodding.items.type.Tool3x3} потому что так пропадает
-     совместимость с другими модами, во время обтесывания не ванильной древесины.
-     */
     private final TagKey<Block> MINEABLE;
 
     public CrystalliteAxeItem(ToolMaterial toolMaterial, TagKey<Block> mineable, Item.Settings settings) {
@@ -35,7 +32,8 @@ public class CrystalliteAxeItem extends AxeItem {
         this.MINEABLE = mineable;
     }
 
-    @Override public ActionResult useOnBlock(ItemUsageContext context) {
+    @Override
+    public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
         PlayerEntity playerEntity = context.getPlayer();
         ArrayList<BlockPos> blockPosList = this.getBlockStateList(context, playerEntity);
@@ -67,9 +65,10 @@ public class CrystalliteAxeItem extends AxeItem {
         return blockReplaced ? ActionResult.success(world.isClient) : ActionResult.PASS;
     }
 
-    @Override public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
+    @Override
+    public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         super.postMine(stack, world, state, pos, miner);
-        Tool3x3.mine3x3(world, pos, miner, MINEABLE);
+        ToolModifications.mine3x3(world, pos, miner, MINEABLE);
         return true;
     }
 

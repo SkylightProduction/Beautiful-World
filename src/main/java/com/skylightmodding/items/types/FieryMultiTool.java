@@ -1,7 +1,7 @@
-package com.skylightmodding.items.type;
+package com.skylightmodding.items.types;
 
+import com.skylightmodding.items.components.ToolModifications;
 import net.minecraft.block.BlockState;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
@@ -16,7 +16,7 @@ public class FieryMultiTool extends MultiToolItem {
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         super.postMine(stack, world, state, pos, miner);
-        FieryTool.blockSmelting(world, state, pos, stack, miner);
+        ToolModifications.blockSmelting(world, state, pos, stack, miner);
         return true;
     }
 }

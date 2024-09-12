@@ -1,8 +1,7 @@
-package com.skylightmodding.misc;
+package com.skylightmodding.items.components;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
@@ -10,7 +9,6 @@ import net.minecraft.registry.tag.TagKey;
 
 import com.skylightmodding.init.BWItems;
 
-import java.util.Objects;
 import java.util.function.Supplier;
 
 public enum BWToolMaterials implements ToolMaterial {

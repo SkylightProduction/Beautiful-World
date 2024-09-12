@@ -1,4 +1,4 @@
-package com.skylightmodding.misc;
+package com.skylightmodding.items.components;
 
 import com.skylightmodding.BeautifulWorld;
 import com.skylightmodding.init.BWItems;

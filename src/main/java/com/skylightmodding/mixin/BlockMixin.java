@@ -1,7 +1,6 @@
 package com.skylightmodding.mixin;
 
-import com.skylightmodding.items.type.FieryMultiTool;
-import com.skylightmodding.items.type.FieryTool;
+import com.skylightmodding.init.BWDataComponents;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -22,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class BlockMixin {
 	@Inject(at = @At("HEAD"), cancellable = true, method = "dropStacks(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/entity/Entity;Lnet/minecraft/item/ItemStack;)V")
 	private static void init(BlockState state, World world, BlockPos pos, @Nullable BlockEntity blockEntity, @Nullable Entity entity, ItemStack tool, CallbackInfo info) {
-		if (tool.getItem() instanceof FieryTool || tool.getItem() instanceof FieryMultiTool) {
+		if (tool.getOrDefault(BWDataComponents.IS_FIERY, false)) {
 			info.cancel();
 		}
 	}

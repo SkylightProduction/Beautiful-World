@@ -1,4 +1,4 @@
-package com.skylightmodding.items.type;
+package com.skylightmodding.items.types;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

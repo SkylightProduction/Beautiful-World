@@ -1,7 +1,6 @@
-package com.skylightmodding.items.type;
+package com.skylightmodding.items.types;
 
 import com.skylightmodding.BeautifulWorld;
-import net.minecraft.item.Item;
 import net.minecraft.item.SmithingTemplateItem;
 import net.minecraft.resource.featuretoggle.FeatureFlag;
 import net.minecraft.text.Text;

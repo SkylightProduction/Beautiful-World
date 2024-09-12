@@ -13,11 +13,15 @@ public class ImmunityEffect extends StatusEffect {
 
     @Override
     public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
-        // Не работает почему-то
         if (entity.hasStatusEffect(BWStatusEffects.INFECTION)) {
             entity.removeStatusEffect(BWStatusEffects.INFECTION);
         }
 
+        return true;
+    }
+
+    @Override
+    public boolean canApplyUpdateEffect(int duration, int amplifier) {
         return true;
     }
 }
