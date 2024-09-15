@@ -8,6 +8,8 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.dimension.DimensionOptions;
+import net.minecraft.world.dimension.DimensionType;
 
 public class BWTags {
     public static class Blocks {
@@ -32,9 +34,21 @@ public class BWTags {
     public static class Biomes {
         public static final TagKey<Biome> OVERLOUD_ORE_GEN_BIOMES = createTag("overloud_ore_gen_biomes");
         public static final TagKey<Biome> RHODIUM_ORE_GEN_BIOMES = createTag("rhodium_ore_gen_biomes");
+        public static final TagKey<Biome> AMULET_OF_CREATION_NETHER_STAGE_BIOMES = createTag("amulet_of_creation_nether_stage_biomes");
+        public static final TagKey<Biome> AMULET_OF_CREATION_END_STAGE_BIOMES = createTag("amulet_of_creation_end_stage_biomes");
+        public static final TagKey<Biome> AMULET_OF_CREATION_OVERWORLD_STAGE_BIOMES = createTag("amulet_of_creation_overworld_stage_biomes");
+        public static final TagKey<Biome> AMULET_OF_CREATION_FINAL_STAGE_BIOMES = createTag("amulet_of_creation_final_stage_biomes");
 
         private static TagKey<Biome> createTag(String name) {
             return TagKey.of(RegistryKeys.BIOME, Identifier.of(BeautifulWorld.MOD_ID, name));
+        }
+    }
+
+    public static class DimensionTypes {
+        public static final TagKey<DimensionType> AMULET_OF_CREATION_FINAL_STAGE_DIMENSIONS = createTag("amulet_of_creation_final_stage_dimensions");
+
+        private static TagKey<DimensionType> createTag(String name) {
+            return TagKey.of(RegistryKeys.DIMENSION_TYPE, Identifier.of(BeautifulWorld.MOD_ID, name));
         }
     }
 }

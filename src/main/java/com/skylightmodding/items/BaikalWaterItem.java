@@ -72,7 +72,7 @@ public class BaikalWaterItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("tooltip.beautifulworld.baikal_water").formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable("tooltip.beautifulworld.only_for_creative").formatted(Formatting.GRAY));
     }
 
     public int getMaxUseTime(ItemStack stack) {

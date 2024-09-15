@@ -27,9 +27,17 @@
     "item.beautifulworld.crystallite_axe": "Кристаллитовый топор",
     "item.beautifulworld.crystallite_shovel": "Кристаллитовая лопата",
     "item.beautifulworld.crystallite_pickaxe": "Кристаллитовая кирка",
+    "item.beautifulworld.amulet_of_creation": "Амулет мироздания",
 
-    "tooltip.beautifulworld.baikal_water": "Только для творческого режима",
+    "item.beautifulworld.amulet_of_creation.stage.void": "Пустота",
+    "item.beautifulworld.amulet_of_creation.stage.nether": "Незер",
+    "item.beautifulworld.amulet_of_creation.stage.end": "Энд",
+    "item.beautifulworld.amulet_of_creation.stage.overworld": "Верхний мир",
+    "item.beautifulworld.amulet_of_creation.stage.sculk": "Скалк",
+    "item.beautifulworld.amulet_of_creation.stage.error": "Ошибка",
+
     "tooltip.beautifulworld.amulet_of_creation": "Уровень: %s",
+    "tooltip.beautifulworld.only_for_creative": "Только для творческого режима",
 
     "block.beautifulworld.overloud_block": "Оверлоудовый блок",
     "block.beautifulworld.raw_overloud_block": "Блок рудного оверлоуда",

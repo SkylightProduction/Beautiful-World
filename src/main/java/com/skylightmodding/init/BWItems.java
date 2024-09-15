@@ -2,9 +2,9 @@ package com.skylightmodding.init;
 
 import com.skylightmodding.BeautifulWorld;
 import com.skylightmodding.items.*;
+import com.skylightmodding.items.types.*;
 import com.skylightmodding.items.components.BWFoodComponents;
 import com.skylightmodding.items.components.ToolModifications;
-import com.skylightmodding.items.types.*;
 import com.skylightmodding.items.components.BWArmorMaterial;
 import com.skylightmodding.items.components.BWToolMaterials;
 
@@ -90,7 +90,7 @@ public class BWItems {
             @Override
             public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                 super.postHit(stack, target, attacker);
-                ToolModifications.torchTheEnemy(6, target);
+                ToolModifications.torchTheEnemy((byte)6, target);
 
                 return true;
             }
@@ -129,7 +129,7 @@ public class BWItems {
     );
     public static final Item AMULET_OF_CREATION = registerItem(
             "amulet_of_creation",
-            new AmuletOfCreation(new Item.Settings().maxCount(1).rarity(Rarity.EPIC).component(BWDataComponents.AMULET_OF_CREATION_STAGE, 0))
+            new AmuletOfCreation(new Item.Settings().maxCount(1).rarity(Rarity.EPIC))
     );
 
 

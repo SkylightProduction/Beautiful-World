@@ -74,7 +74,7 @@ public class ToolModifications {
                 isSmelting = true;
                 serverWorld.spawnParticles(ParticleTypes.FLAME, (double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, 20, 0.15D, 0.25D, 0.15D, 0.035f);
                 serverWorld.playSound(null, (double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 0.4F, 2.6F);
-                for (int i = 0; i < inputList.getFirst().getCount(); i++) {
+                for (byte i = 0; i < inputList.getFirst().getCount(); i++) {
                     Block.dropStack(world, pos, result);
                 }
             }
@@ -87,7 +87,7 @@ public class ToolModifications {
 
 
     /** Поджигание атакуемых мобов */
-    public static void torchTheEnemy(int seconds, LivingEntity enemy) {
+    public static void torchTheEnemy(byte seconds, LivingEntity enemy) {
         if (!enemy.isFireImmune()) {
             enemy.setOnFireFor(seconds);
         }

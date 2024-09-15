@@ -42,7 +42,7 @@ public class BeautifulWorld implements ModInitializer {
 				.frameBlock(BWBlocks.FORTIFIED_CRYING_OBSIDIAN.getBlock())
 				.destDimID(Identifier.of(MOD_ID, "beautiful_world"))
 				.customPortalBlock(BWBlocks.BW_PORTAL_BLOCK)
-				.lightWithItem(BWItems.AMULET_OF_CREATION)  // todo: сделать так, чтобы для активации использовался AMULET_OF_CREATION с STAGE_LVL == 2.
+				.lightWithItem(BWItems.AMULET_OF_CREATION)  // todo: сделать так, чтобы для активации использовался AMULET_OF_CREATION с AMULET_OF_CREATION_STAGE == 2.
 				/*
 				Ооо бля, я придумал как эту проблему (из to_do выше) решить можно. Надо сделать миксин метода `lightWithItem`, туда просто запихать проверку: является ли
 				предмет AMULET_OF_CREATION и == ли его дата компонент `amulet_of_creation_stage` двум, если да, то активировать портал, иначе fuck you leather man.

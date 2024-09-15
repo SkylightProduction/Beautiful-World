@@ -1,24 +1,21 @@
 package com.skylightmodding.items;
 
-import com.skylightmodding.BeautifulWorld;
 import com.skylightmodding.init.BWDataComponents;
-import com.skylightmodding.worldgen.dimensions.BeautifulWorldDim;
+import com.skylightmodding.misc.BWTags;
 
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.CustomModelDataComponent;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.StackReference;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
-import net.minecraft.util.ClickType;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeKeys;
 
 import java.util.List;
 
@@ -28,13 +25,35 @@ public class AmuletOfCreation extends Item {
     }
 
     @Override
+    public ItemStack getDefaultStack() {
+        ItemStack stack = super.getDefaultStack();
+        stack.set(BWDataComponents.AMULET_OF_CREATION_STAGE, 0);
+        stack.set(DataComponentTypes.CUSTOM_MODEL_DATA, CustomModelDataComponent.DEFAULT);
+        return stack;
+    }
+
+    @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
+        RegistryEntry<Biome> biome = world.getBiome(user.getBlockPos());
 
-        if (world.isClient()) {return TypedActionResult.success(itemStack);}
+        if (world.isClient()) { return TypedActionResult.success(itemStack); }
 
         int stage = itemStack.getOrDefault(BWDataComponents.AMULET_OF_CREATION_STAGE, 0);
-        itemStack.set(BWDataComponents.AMULET_OF_CREATION_STAGE, stage == 4 ? stage : ++stage);
+
+        if (stage == 4) { return TypedActionResult.success(itemStack); }
+
+        if (stage == 0 && biome.isIn(BWTags.Biomes.AMULET_OF_CREATION_NETHER_STAGE_BIOMES)) {
+            ++stage;
+        } else if (stage == 1 && biome.isIn(BWTags.Biomes.AMULET_OF_CREATION_END_STAGE_BIOMES)) {
+            ++stage;
+        } else if (stage == 2 && biome.isIn(BWTags.Biomes.AMULET_OF_CREATION_OVERWORLD_STAGE_BIOMES)) {
+            ++stage;
+        } else if (stage == 3 && biome.isIn(BWTags.Biomes.AMULET_OF_CREATION_FINAL_STAGE_BIOMES) && world.getDimensionEntry().isIn(BWTags.DimensionTypes.AMULET_OF_CREATION_FINAL_STAGE_DIMENSIONS)) {
+            ++stage;
+        }
+        itemStack.set(BWDataComponents.AMULET_OF_CREATION_STAGE, stage);
+        itemStack.set(DataComponentTypes.CUSTOM_MODEL_DATA, new CustomModelDataComponent(stage));
 
         return TypedActionResult.success(itemStack);
     }
@@ -44,12 +63,14 @@ public class AmuletOfCreation extends Item {
         tooltip.add(Text.translatable("tooltip.beautifulworld.amulet_of_creation", stageConv(stack.getOrDefault(BWDataComponents.AMULET_OF_CREATION_STAGE, 0))).formatted(Formatting.GOLD));
     }
 
-    private String stageConv(int stage) {
-        if (stage == 0) { return "\"Null\""; }
-        else if (stage == 1) { return "\"Nether\""; }
-        else if (stage == 2) { return "\"End\""; }
-        else if (stage == 3) { return "\"Overworld\""; }
-        else if (stage == 4) { return "\"Sculk\""; }
-        return "ERROR";
+    private Text stageConv(int stage) {
+        return switch (stage) {
+            case 0 -> Text.translatable("item.beautifulworld.amulet_of_creation.stage.void");
+            case 1 -> Text.translatable("item.beautifulworld.amulet_of_creation.stage.nether");
+            case 2 -> Text.translatable("item.beautifulworld.amulet_of_creation.stage.end");
+            case 3 -> Text.translatable("item.beautifulworld.amulet_of_creation.stage.overworld");
+            case 4 -> Text.translatable("item.beautifulworld.amulet_of_creation.stage.sculk");
+            default -> Text.translatable("item.beautifulworld.amulet_of_creation.stage.error");
+        };
     }
 }

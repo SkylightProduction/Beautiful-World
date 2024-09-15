@@ -5,23 +5,23 @@
     },
     "overrides": [
         {
-            "predicate": {"aoc_stage": 0},
-            "model": "beautifulworld:item/amulet_of_creation_0"
+            "predicate": { "minecraft:custom_model_data": 0 },
+            "model": "beautifulworld:item/amulet_of_creation"
         },
         {
-            "predicate": {"aoc_stage": 0.25},
+            "predicate": { "minecraft:custom_model_data": 1 },
             "model": "beautifulworld:item/amulet_of_creation_1"
         },
         {
-            "predicate": {"aoc_stage": 0.5},
+            "predicate": { "minecraft:custom_model_data": 2 },
             "model": "beautifulworld:item/amulet_of_creation_2"
         },
         {
-            "predicate": {"aoc_stage": 0.75},
+            "predicate": { "minecraft:custom_model_data": 3 },
             "model": "beautifulworld:item/amulet_of_creation_3"
         },
         {
-            "predicate": {"aoc_stage": 1},
+            "predicate": { "minecraft:custom_model_data": 4 },
             "model": "beautifulworld:item/amulet_of_creation_4"
         }
     ]

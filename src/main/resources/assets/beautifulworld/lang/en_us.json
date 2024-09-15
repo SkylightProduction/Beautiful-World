@@ -18,8 +18,20 @@
     "item.beautifulworld.rhodium_sword": "Rhodium Sword",
     "item.beautifulworld.rhodium_multitool": "Rhodium Multi-Tool",
     "item.beautifulworld.pitahaya": "Pitahaya",
+    "item.beautifulworld.amulet_of_creation": "Amulet of Creation",
+    "item.beautifulworld.crystallite_axe": "Crystallite axe",
+    "item.beautifulworld.crystallite_shovel": "Crystallite shovel",
+    "item.beautifulworld.crystallite_pickaxe": "Crystallite pickaxe",
 
-    "tooltip.beautifulworld.baikal_water": "Only for Creative",
+    "item.beautifulworld.amulet_of_creation.stage.void": "Void",
+    "item.beautifulworld.amulet_of_creation.stage.nether": "Nether",
+    "item.beautifulworld.amulet_of_creation.stage.end": "End",
+    "item.beautifulworld.amulet_of_creation.stage.overworld": "Overworld",
+    "item.beautifulworld.amulet_of_creation.stage.sculk": "Sculk",
+    "item.beautifulworld.amulet_of_creation.stage.error": "ERROR",
+
+    "tooltip.beautifulworld.amulet_of_creation": "Stage: %s",
+    "tooltip.beautifulworld.only_for_creative": "Only for Creative",
 
     "block.beautifulworld.overloud_block": "Overloud Block",
     "block.beautifulworld.raw_overloud_block": "Raw Overloud Block",
@@ -46,6 +58,7 @@
     "block.beautifulworld.pitahaya_tree_stairs": "Pitahaya Tree Stairs",
     "block.beautifulworld.pitahaya_tree_trapdoor": "Pitahaya Tree Trapdoor",
     "block.beautifulworld.pitahaya_tree_door": "Pitahaya Tree Door",
+    "block.beautifulworld.fortified_crying_obsidian": "Fortified crying obsidian",
 
     "effect.beautifulworld.immunity": "Immunity",
     "effect.beautifulworld.infection": "Infection",
