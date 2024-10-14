@@ -4,12 +4,9 @@ import com.skylightmodding.init.*;
 import com.skylightmodding.worldgen.BWFeatures;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 import org.slf4j.Logger;
@@ -21,21 +18,13 @@ public class BeautifulWorld implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		/* Strippable block reg */
-		StrippableBlockRegistry.register(BWBlocks.PITAHAYA_TREE_WOOD.getBlock(), BWBlocks.STRIPPED_PITAHAYA_TREE_WOOD.getBlock());
-		StrippableBlockRegistry.register(BWBlocks.PITAHAYA_TREE_LOG.getBlock(), BWBlocks.STRIPPED_PITAHAYA_TREE_LOG.getBlock());
-
 		/* reg init */
 		BWItems.registerModItems();
 		BWBlocks.registerModBlocks();
 		BWStatusEffects.registerModEffects();
 		BWFeatures.registerPlacedFeature();
 		BWDataComponents.registerModDC();
-
-		/* Group of items reg */
-		Registry.register(Registries.ITEM_GROUP, Identifier.of(MOD_ID, "items"), BWItemGroups.ITEMS_TAB);
-		Registry.register(Registries.ITEM_GROUP, Identifier.of(MOD_ID, "blocks"), BWItemGroups.BLOCKS_TAB);
-		Registry.register(Registries.ITEM_GROUP, Identifier.of(MOD_ID, "equipment"), BWItemGroups.EQUIPMENT_TAB);
+		BWItemGroups.registerItemsGroups();
 
 		/* Portals reg */
 		CustomPortalBuilder.beginPortal()

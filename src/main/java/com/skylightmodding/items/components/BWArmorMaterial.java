@@ -33,7 +33,7 @@ public class BWArmorMaterial {
 
         for (int var11 = 0; var11 < var10; ++var11) {
             ArmorItem.Type type = var9[var11];
-            enumMap.put(type, (Integer)defense.get(type));
+            enumMap.put(type, defense.get(type));
         }
 
         return Registry.registerReference(Registries.ARMOR_MATERIAL, Identifier.of(BeautifulWorld.MOD_ID, id), new ArmorMaterial(enumMap, enchantability, equipSound, repairIngredient, layers, toughness, knockbackResistance));
@@ -47,7 +47,7 @@ public class BWArmorMaterial {
             map.put(ArmorItem.Type.HELMET, 5);
             map.put(ArmorItem.Type.BODY, 13);
         }), 18, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
-            return Ingredient.ofItems(new ItemConvertible[]{BWItems.OVERLOUD_INGOT});
+            return Ingredient.ofItems(BWItems.OVERLOUD_INGOT);
         });
     }
 }

@@ -1,8 +1,5 @@
 {
   "variants": {
-    "": [
-      { "model": "beautifulworld:block/infected_dirt1" },
-      { "model": "beautifulworld:block/infected_dirt2" }
-    ]
+    "": { "model": "beautifulworld:block/infected_dirt" }
   }
 }

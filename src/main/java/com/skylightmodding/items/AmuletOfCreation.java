@@ -52,6 +52,7 @@ public class AmuletOfCreation extends Item {
         } else if (stage == 3 && biome.isIn(BWTags.Biomes.AMULET_OF_CREATION_FINAL_STAGE_BIOMES) && world.getDimensionEntry().isIn(BWTags.DimensionTypes.AMULET_OF_CREATION_FINAL_STAGE_DIMENSIONS)) {
             ++stage;
         }
+
         itemStack.set(BWDataComponents.AMULET_OF_CREATION_STAGE, stage);
         itemStack.set(DataComponentTypes.CUSTOM_MODEL_DATA, new CustomModelDataComponent(stage));
 

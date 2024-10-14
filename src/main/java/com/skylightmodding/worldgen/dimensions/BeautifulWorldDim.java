@@ -22,7 +22,7 @@ public class BeautifulWorldDim {
 
     public static void BWType(Registerable<DimensionType> context) {
         context.register(BW_DIM_TYPE, new DimensionType(
-                OptionalLong.empty() /*OptionalLong.of(12000)*/ /* fixed time */,
+                OptionalLong.empty() /* fixed time */    /*OptionalLong.of(12000)*/,
                 true,
                 false,
                 false,

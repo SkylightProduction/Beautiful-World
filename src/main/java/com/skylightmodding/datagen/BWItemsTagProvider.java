@@ -36,7 +36,7 @@ public class BWItemsTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.LEAVES)
                 .add(BWBlocks.PITAHAYA_TREE_LEAVES)
-                .add(BWBlocks.FRUITFUL_PITAHAYA_TREE_LEAVES)
+//                .add(BWBlocks.FRUITFUL_PITAHAYA_TREE_LEAVES)
         ;
 
         getOrCreateTagBuilder(ItemTags.FOOT_ARMOR)

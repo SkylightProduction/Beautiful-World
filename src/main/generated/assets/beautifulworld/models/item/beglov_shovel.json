@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "beautifulworld:item/overloud_axe"
+    "layer0": "beautifulworld:item/beglov_shovel"
   }
 }

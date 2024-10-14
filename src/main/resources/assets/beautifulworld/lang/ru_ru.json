@@ -14,7 +14,6 @@
     "item.beautifulworld.overloud_leggings": "Оверлоудовые поножи",
     "item.beautifulworld.overloud_boots": "Оверлоудовые ботинки",
     "item.beautifulworld.overloud_upgrade_smithing_template": "Кузнечный шаблон",
-    "upgrade.beautifulworld.overloud_upgrade": "Оверлоудовое улучшение",
     "item.beautifulworld.smithing_template.overloud_upgrade.applies_to": "Незеритовому снаряжению",
     "item.beautifulworld.smithing_template.overloud_upgrade.ingredients": "Оверлоудовый слиток",
     "item.beautifulworld.smithing_template.overloud_upgrade.base_slot_description": "",
@@ -28,6 +27,9 @@
     "item.beautifulworld.crystallite_shovel": "Кристаллитовая лопата",
     "item.beautifulworld.crystallite_pickaxe": "Кристаллитовая кирка",
     "item.beautifulworld.amulet_of_creation": "Амулет мироздания",
+    "item.beautifulworld.beglov_shovel": "Лопата Беглова",
+
+    "upgrade.beautifulworld.overloud_upgrade": "Оверлоудовое улучшение",
 
     "item.beautifulworld.amulet_of_creation.stage.void": "Пустота",
     "item.beautifulworld.amulet_of_creation.stage.nether": "Незер",

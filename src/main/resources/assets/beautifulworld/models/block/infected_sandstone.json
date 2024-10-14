@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "down": "beautifulworld:block/infected_sandstone_bottom",
+        "up": "beautifulworld:block/infected_sandstone_top",
+        "north": "beautifulworld:block/infected_sandstone_side",
+        "east": "beautifulworld:block/infected_sandstone_side",
+        "south": "beautifulworld:block/infected_sandstone_side",
+        "west": "beautifulworld:block/infected_sandstone_side",
+        "particle": "beautifulworld:block/infected_sandstone_side"
+    }
+}

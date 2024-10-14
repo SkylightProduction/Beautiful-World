@@ -1,0 +1,16 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "beautifulworld:item/overloud_axe"
+    },
+    "overrides": [
+        {
+            "predicate": { "minecraft:custom_model_data": 0 },
+            "model": "beautifulworld:item/overloud_axe"
+        },
+        {
+            "predicate": { "minecraft:custom_model_data": 1 },
+            "model": "beautifulworld:item/overloud_axe_1"
+        }
+    ]
+}

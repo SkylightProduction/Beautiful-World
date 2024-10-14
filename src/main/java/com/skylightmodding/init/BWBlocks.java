@@ -3,26 +3,24 @@ package com.skylightmodding.init;
 import com.skylightmodding.BeautifulWorld;
 import com.skylightmodding.blocks.FallingInfectedBlock;
 import com.skylightmodding.blocks.InfectedBlock;
+import com.skylightmodding.blocks.PitahayaLeaves;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 
 import net.kyrptonaught.customportalapi.CustomPortalBlock;
 
 import net.minecraft.block.*;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.math.random.Random;
@@ -35,6 +33,11 @@ public class BWBlocks {
     // Korg blocks
     public static final BlockItem INFECTED_DIRT = registerBlockItem(
             "infected_dirt",
+            new InfectedBlock(INFECTED_BLOCK_SETTINGS.strength(2.000f)),
+            new Item.Settings().rarity(Rarity.EPIC)
+    );
+    public static final BlockItem INFECTED_GRASS = registerBlockItem(
+            "infected_grass",
             new InfectedBlock(INFECTED_BLOCK_SETTINGS.strength(2.000f)),
             new Item.Settings().rarity(Rarity.EPIC)
     );
@@ -55,6 +58,11 @@ public class BWBlocks {
     );
     public static final BlockItem INFECTED_COBBLESTONE = registerBlockItem(
             "infected_cobblestone",
+            new InfectedBlock(INFECTED_BLOCK_SETTINGS.strength(2.000f)),
+            new Item.Settings().rarity(Rarity.EPIC)
+    );
+    public static final BlockItem INFECTED_SANDSTONE = registerBlockItem(
+            "infected_sandstone",
             new InfectedBlock(INFECTED_BLOCK_SETTINGS.strength(2.000f)),
             new Item.Settings().rarity(Rarity.EPIC)
     );
@@ -138,20 +146,7 @@ public class BWBlocks {
     );
     public static final BlockItem PITAHAYA_TREE_LEAVES = registerBlockItem(
             "pitahaya_leaves",
-            new LeavesBlock(Block.Settings.copy(Blocks.CHERRY_LEAVES))
-    );
-    public static final BlockItem FRUITFUL_PITAHAYA_TREE_LEAVES = registerBlockItem(
-        "fruitful_pitahaya_leaves",
-        new LeavesBlock(Block.Settings.copy(Blocks.CHERRY_LEAVES)) {
-            @Override
-            public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-                dropStack(world, pos, new ItemStack(BWItems.PITAHAYA, world.random.nextBetween(1, 2)));
-                world.playSound(player, pos, SoundEvents.BLOCK_CAVE_VINES_PICK_BERRIES, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() * 0.4F);
-                world.setBlockState(pos, PITAHAYA_TREE_LEAVES.getBlock().getDefaultState(), 2);
-
-                return ActionResult.success(world.isClient);
-            }
-        }
+            new PitahayaLeaves(Block.Settings.copy(Blocks.CHERRY_LEAVES))
     );
 
     // other
@@ -192,7 +187,15 @@ public class BWBlocks {
         return Registry.register(Registries.BLOCK, Identifier.of(BeautifulWorld.MOD_ID, name), block);
     }
 
+
+    private static void registerStrippableBlocks() {
+        StrippableBlockRegistry.register(PITAHAYA_TREE_WOOD.getBlock(), STRIPPED_PITAHAYA_TREE_WOOD.getBlock());
+        StrippableBlockRegistry.register(PITAHAYA_TREE_LOG.getBlock(), STRIPPED_PITAHAYA_TREE_LOG.getBlock());
+        BeautifulWorld.LOGGER.info("Registering Strippable Blocks from " + BeautifulWorld.MOD_ID);
+    }
+
     public static void registerModBlocks() {
+        registerStrippableBlocks();
         BeautifulWorld.LOGGER.info("Registering Blocks from " + BeautifulWorld.MOD_ID);
     }
 }

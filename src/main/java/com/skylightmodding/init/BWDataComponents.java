@@ -12,6 +12,8 @@ import com.skylightmodding.BeautifulWorld;
 public class BWDataComponents {
     public static final ComponentType<Integer> AMULET_OF_CREATION_STAGE = registerIntComponent("amulet_of_creation_stage");
     public static final ComponentType<Boolean> IS_FIERY = registerBooleanComponent("is_fiery");
+    public static final ComponentType<Integer> OVERLOUD_AXE_STIPULATION = registerIntComponent("overloud_axe_stipulation");
+
 
 
     private static ComponentType<Integer> registerIntComponent(String name) {

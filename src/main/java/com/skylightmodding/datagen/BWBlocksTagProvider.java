@@ -19,7 +19,7 @@ public class BWBlocksTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(BlockTags.LEAVES)
                 .add(BWBlocks.PITAHAYA_TREE_LEAVES.getBlock())
-                .add(BWBlocks.FRUITFUL_PITAHAYA_TREE_LEAVES.getBlock())
+//                .add(BWBlocks.FRUITFUL_PITAHAYA_TREE_LEAVES.getBlock())
         ;
 
         getOrCreateTagBuilder(BlockTags.PLANKS)

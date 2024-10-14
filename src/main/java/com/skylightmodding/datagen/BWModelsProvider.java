@@ -34,8 +34,8 @@ public class BWModelsProvider extends FabricModelProvider {
         blockStateModelGenerator.registerLog(BWBlocks.STRIPPED_PITAHAYA_TREE_LOG.getBlock())
                 .log(BWBlocks.STRIPPED_PITAHAYA_TREE_LOG.getBlock())
                 .wood(BWBlocks.STRIPPED_PITAHAYA_TREE_WOOD.getBlock());
-        blockStateModelGenerator.registerSimpleCubeAll(BWBlocks.PITAHAYA_TREE_LEAVES.getBlock());
-        blockStateModelGenerator.registerSimpleCubeAll(BWBlocks.FRUITFUL_PITAHAYA_TREE_LEAVES.getBlock());
+//        blockStateModelGenerator.registerSimpleCubeAll(BWBlocks.PITAHAYA_TREE_LEAVES.getBlock());
+//        blockStateModelGenerator.registerSimpleCubeAll(BWBlocks.FRUITFUL_PITAHAYA_TREE_LEAVES.getBlock());
 
         // overloud
         blockStateModelGenerator.registerCubeAllModelTexturePool(BWBlocks.OVERLOUD_BLOCK.getBlock());
@@ -51,7 +51,6 @@ public class BWModelsProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         // overloud
         itemModelGenerator.register(BWItems.OVERLOUD_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(BWItems.OVERLOUD_AXE, Models.HANDHELD);
         itemModelGenerator.register(BWItems.OVERLOUD_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(BWItems.OVERLOUD_SWORD, Models.HANDHELD);
         itemModelGenerator.register(BWItems.OVERLOUD_HOE, Models.HANDHELD);
@@ -81,5 +80,6 @@ public class BWModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(BWItems.PITAHAYA, Models.GENERATED);
         itemModelGenerator.register(BWItems.CRYSTALLITE, Models.GENERATED);
         itemModelGenerator.register(BWItems.BAIKAL_WATER, Models.GENERATED);
+        itemModelGenerator.register(BWItems.BEGLOV_SHOVEL, Models.HANDHELD);
     }
 }

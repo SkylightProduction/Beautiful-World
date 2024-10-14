@@ -1,13 +1,20 @@
 package com.skylightmodding.init;
 
+import com.skylightmodding.BeautifulWorld;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 
 public class BWItemGroups {
-    public static final ItemGroup ITEMS_TAB = FabricItemGroup.builder()
+    public static final ItemGroup ITEMS_TAB = registerGroup(
+            "items",
+            FabricItemGroup.builder()
             .icon(() -> new ItemStack(BWItems.RAW_OVERLOUD))
             .displayName(Text.translatable("itemGroup.beautifulworld.items"))
             .entries((context, entries) -> {
@@ -18,18 +25,23 @@ public class BWItemGroups {
                 entries.add(BWItems.KORG_FRAGMENT);
                 entries.add(BWItems.BAIKAL_WATER);
                 entries.add(BWItems.PITAHAYA);
-                entries.add(BWItems.AMULET_OF_CREATION);
+                entries.add(BWItems.AMULET_OF_CREATION.getDefaultStack());
                 entries.add(BWItems.OVERLOUD_UPGRADE_SMITHING_TEMPLATE);
-            }).build();
+            }).build()
+    );
 
 
-    public static final ItemGroup BLOCKS_TAB = FabricItemGroup.builder()
+    public static final ItemGroup BLOCKS_TAB = registerGroup(
+            "blocks",
+            FabricItemGroup.builder()
             .icon(() -> new ItemStack(BWBlocks.INFECTED_DIRT))
             .displayName(Text.translatable("itemGroup.beautifulworld.blocks"))
             .entries((context, entries) -> {
                 entries.add(BWBlocks.INFECTED_DIRT);
+                entries.add(BWBlocks.INFECTED_GRASS);
                 entries.add(BWBlocks.INFECTED_CLAY);
                 entries.add(BWBlocks.INFECTED_SAND);
+                entries.add(BWBlocks.INFECTED_SANDSTONE);
                 entries.add(BWBlocks.INFECTED_STONE);
                 entries.add(BWBlocks.INFECTED_COBBLESTONE);
                 entries.add(BWBlocks.OVERLOUD_ORE);
@@ -51,12 +63,15 @@ public class BWItemGroups {
                 entries.add(BWBlocks.PITAHAYA_TREE_WOOD);
                 entries.add(BWBlocks.STRIPPED_PITAHAYA_TREE_WOOD);
                 entries.add(BWBlocks.PITAHAYA_TREE_LEAVES);
-                entries.add(BWBlocks.FRUITFUL_PITAHAYA_TREE_LEAVES);
+//                entries.add(BWBlocks.FRUITFUL_PITAHAYA_TREE_LEAVES);
                 entries.add(BWBlocks.FORTIFIED_CRYING_OBSIDIAN);
-            }).build();
+            }).build()
+    );
 
 
-    public static final ItemGroup EQUIPMENT_TAB = FabricItemGroup.builder()
+    public static final ItemGroup EQUIPMENT_TAB = registerGroup(
+            "equipment",
+            FabricItemGroup.builder()
             .icon(() -> new ItemStack(BWItems.RHODIUM_SWORD))
             .displayName(Text.translatable("itemGroup.beautifulworld.equipment"))
             .entries((context, entries) -> {
@@ -66,7 +81,7 @@ public class BWItemGroups {
                 entries.add(BWItems.OVERLOUD_BOOTS);
                 entries.add(BWItems.OVERLOUD_SWORD);
                 entries.add(BWItems.OVERLOUD_PICKAXE);
-                entries.add(BWItems.OVERLOUD_AXE);
+                entries.add(BWItems.OVERLOUD_AXE.getDefaultStack());
                 entries.add(BWItems.OVERLOUD_SHOVEL);
                 entries.add(BWItems.OVERLOUD_HOE);
                 entries.add(BWItems.RHODIUM_SWORD);
@@ -75,5 +90,15 @@ public class BWItemGroups {
                 entries.add(BWItems.CRYSTALLITE_PICKAXE);
                 entries.add(BWItems.CRYSTALLITE_SHOVEL);
                 entries.add(BWItems.CRYSTALLITE_AXE);
-            }).build();
+                entries.add(BWItems.BEGLOV_SHOVEL);
+            }).build()
+    );
+
+    private static ItemGroup registerGroup (String name, ItemGroup group) {
+        return Registry.register(Registries.ITEM_GROUP, Identifier.of(BeautifulWorld.MOD_ID, name), group);
+    }
+
+    public static void registerItemsGroups() {
+        BeautifulWorld.LOGGER.info("Registering Items Groups from " + BeautifulWorld.MOD_ID);
+    }
 }

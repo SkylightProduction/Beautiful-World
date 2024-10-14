@@ -2,6 +2,7 @@ package com.skylightmodding.items;
 
 import com.skylightmodding.init.BWStatusEffects;
 
+import com.skylightmodding.misc.TooltipTemplates;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -72,7 +73,7 @@ public class BaikalWaterItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("tooltip.beautifulworld.only_for_creative").formatted(Formatting.GRAY));
+        tooltip.add(TooltipTemplates.ONLY_FOR_CREATIVE);
     }
 
     public int getMaxUseTime(ItemStack stack) {

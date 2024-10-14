@@ -8,7 +8,6 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.dimension.DimensionOptions;
 import net.minecraft.world.dimension.DimensionType;
 
 public class BWTags {
@@ -16,6 +15,7 @@ public class BWTags {
         public static final TagKey<Block> PITAHAYA_TREE_LOGS = createTag("pitahaya_tree_logs_blocks");
         public static final TagKey<Block> MULTITOOL_MINEABLE = createTag("multitool_mineable");
         public static final TagKey<Block> BASE_STONE_END = createTag("base_stone_end");
+        public static final TagKey<Block> NOT_INFECTIBLE_BLOCKS = createTag("not_infectible_blocks");
 
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(BeautifulWorld.MOD_ID, name));
