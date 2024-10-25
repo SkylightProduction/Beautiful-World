@@ -28,7 +28,7 @@
     "item.beautifulworld.amulet_of_creation.stage.nether": "Nether",
     "item.beautifulworld.amulet_of_creation.stage.end": "End",
     "item.beautifulworld.amulet_of_creation.stage.overworld": "Overworld",
-    "item.beautifulworld.amulet_of_creation.stage.sculk": "Sculk",
+    "item.beautifulworld.amulet_of_creation.stage.sculk": "Korg",
     "item.beautifulworld.amulet_of_creation.stage.error": "ERROR",
 
     "tooltip.beautifulworld.amulet_of_creation": "Stage: %s",

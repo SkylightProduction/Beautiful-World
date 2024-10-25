@@ -3,16 +3,19 @@ package com.skylightmodding.items;
 import com.google.common.collect.BiMap;
 
 import com.skylightmodding.items.components.ToolModifications;
+import com.skylightmodding.misc.TooltipTemplates;
 
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -22,6 +25,7 @@ import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class CrystalliteAxeItem extends AxeItem {
@@ -33,11 +37,16 @@ public class CrystalliteAxeItem extends AxeItem {
     }
 
     @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(TooltipTemplates.CAN_MINE_3x3);
+    }
+
+    @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
         PlayerEntity playerEntity = context.getPlayer();
-        ArrayList<BlockPos> blockPosList = this.getBlockStateList(context, playerEntity);
-        ItemStack itemStack = null;
+        ArrayList<BlockPos> blockPosList = this.getBlockStateList(context, playerEntity.getFacing());
+        ItemStack itemStack = context.getStack();
         boolean blockReplaced = false;
 
         for (BlockPos bp : blockPosList) {
@@ -46,9 +55,8 @@ public class CrystalliteAxeItem extends AxeItem {
             if (optional.isEmpty()) {
                 blockReplaced = false;
             } else {
-                itemStack = context.getStack();
                 if (playerEntity instanceof ServerPlayerEntity) {
-                    Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity) playerEntity, bp, itemStack);
+                    Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity) playerEntity, blockPosList.getFirst(), itemStack);
                 }
 
                 world.setBlockState(bp, (BlockState) optional.get(), 11);
@@ -104,9 +112,9 @@ public class CrystalliteAxeItem extends AxeItem {
         });
     }
 
-    private ArrayList<BlockPos> getBlockStateList(ItemUsageContext context, PlayerEntity entity) {
+    private ArrayList<BlockPos> getBlockStateList(ItemUsageContext context, Direction facing) {
         ArrayList<BlockPos> blockStateList = new ArrayList<>();
-        if (entity.getFacing() == Direction.NORTH || entity.getFacing() == Direction.SOUTH) {
+        if (facing == Direction.NORTH || facing == Direction.SOUTH) {
             blockStateList.add(context.getBlockPos());
             blockStateList.add(context.getBlockPos().down(1));
             blockStateList.add(context.getBlockPos().up(1));
@@ -116,7 +124,7 @@ public class CrystalliteAxeItem extends AxeItem {
             blockStateList.add(context.getBlockPos().west(1).down(1));
             blockStateList.add(context.getBlockPos().east(1).up(1));
             blockStateList.add(context.getBlockPos().east(1).down(1));
-        } else if (entity.getFacing() == Direction.EAST || entity.getFacing() == Direction.WEST) {
+        } else if (facing == Direction.EAST || facing == Direction.WEST) {
             blockStateList.add(context.getBlockPos());
             blockStateList.add(context.getBlockPos().down(1));
             blockStateList.add(context.getBlockPos().up(1));
@@ -126,7 +134,7 @@ public class CrystalliteAxeItem extends AxeItem {
             blockStateList.add(context.getBlockPos().south(1).down(1));
             blockStateList.add(context.getBlockPos().north(1).up(1));
             blockStateList.add(context.getBlockPos().north(1).down(1));
-        } else if (entity.getFacing() == Direction.UP || entity.getFacing() == Direction.DOWN) {
+        } else if (facing == Direction.UP || facing == Direction.DOWN) {
             blockStateList.add(context.getBlockPos());
             blockStateList.add(context.getBlockPos().west(1));
             blockStateList.add(context.getBlockPos().east(1));

@@ -6,9 +6,11 @@ import net.minecraft.block.CampfireBlock;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -16,7 +18,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import com.skylightmodding.misc.TooltipTemplates;
 import com.skylightmodding.items.components.ToolModifications;
 
 public class CrystalliteShovelItem extends ShovelItem {
@@ -25,6 +29,11 @@ public class CrystalliteShovelItem extends ShovelItem {
     public CrystalliteShovelItem(ToolMaterial toolMaterial, TagKey<Block> tag, Item.Settings settings) {
         super(toolMaterial, settings);
         this.MINEABLE = tag;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(TooltipTemplates.CAN_MINE_3x3);
     }
 
     @Override

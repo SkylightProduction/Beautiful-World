@@ -1,9 +1,7 @@
-package com.skylightmodding.blocks.components;
+package com.skylightmodding.init;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-
-import com.skylightmodding.init.BWBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

@@ -1,0 +1,17 @@
+{
+    "feature": "beautifulworld:infected_oak",
+    "placement": [
+        {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+                "type": "minecraft:would_survive",
+                "state": {
+                    "Name": "beautifulworld:infected_oak_sapling",
+                    "Properties": {
+                        "stage": "0"
+                    }
+                }
+            }
+        }
+    ]
+}

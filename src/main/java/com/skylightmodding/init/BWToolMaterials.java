@@ -1,4 +1,4 @@
-package com.skylightmodding.items.components;
+package com.skylightmodding.init;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Items;
@@ -6,8 +6,6 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.TagKey;
-
-import com.skylightmodding.init.BWItems;
 
 import java.util.function.Supplier;
 

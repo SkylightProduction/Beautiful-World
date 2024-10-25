@@ -35,11 +35,17 @@
     "item.beautifulworld.amulet_of_creation.stage.nether": "Незер",
     "item.beautifulworld.amulet_of_creation.stage.end": "Энд",
     "item.beautifulworld.amulet_of_creation.stage.overworld": "Верхний мир",
-    "item.beautifulworld.amulet_of_creation.stage.sculk": "Скалк",
+    "item.beautifulworld.amulet_of_creation.stage.korg": "Корг",
     "item.beautifulworld.amulet_of_creation.stage.error": "Ошибка",
 
     "tooltip.beautifulworld.amulet_of_creation": "Уровень: %s",
     "tooltip.beautifulworld.only_for_creative": "Только для творческого режима",
+    "tooltip.beautifulworld.can_mine_3x3": "Работает в области 3x3",
+    "tooltip.beautifulworld.has_autosmelting": "Автоплавка",
+    "tooltip.beautifulworld.can_torch_the_enemy": "Поджигает мобов",
+
+    "overlay_message.beautifulworld.overloud_axe.change": "Положение топора изменено",
+    "overlay_message.beautifulworld.overloud_axe.fail": "Действие невозможно! Измените положение топора в руке (ПКМ)",
 
     "block.beautifulworld.overloud_block": "Оверлоудовый блок",
     "block.beautifulworld.raw_overloud_block": "Блок рудного оверлоуда",
@@ -73,5 +79,6 @@
 
     "itemGroup.beautifulworld.items": "Beautiful World: Предметы",
     "itemGroup.beautifulworld.blocks": "Beautiful World: Блоки",
-    "itemGroup.beautifulworld.equipment": "Beautiful World: Снаряжение"
+    "itemGroup.beautifulworld.equipment": "Beautiful World: Снаряжение",
+    "itemGroup.beautifulworld.korg_tab": "Beautiful World: Корг"
 }

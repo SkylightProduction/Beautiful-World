@@ -4,6 +4,7 @@ import com.skylightmodding.BeautifulWorld;
 import com.skylightmodding.blocks.FallingInfectedBlock;
 import com.skylightmodding.blocks.InfectedBlock;
 import com.skylightmodding.blocks.PitahayaLeaves;
+import com.skylightmodding.worldgen.tree.BWSaplingGenerator;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -28,43 +29,47 @@ import net.minecraft.world.World;
 
 public class BWBlocks {
     /* settings */
-    public static final Block.Settings INFECTED_BLOCK_SETTINGS = Block.Settings.create().sounds(BlockSoundGroup.MUD);
+    public static final Block.Settings INFECTED_BLOCK_SETTINGS = Block.Settings.create().sounds(BlockSoundGroup.MUD).strength(2.000f);
 
     // Korg blocks
     public static final BlockItem INFECTED_DIRT = registerBlockItem(
             "infected_dirt",
-            new InfectedBlock(INFECTED_BLOCK_SETTINGS.strength(2.000f)),
+            new InfectedBlock(INFECTED_BLOCK_SETTINGS),
             new Item.Settings().rarity(Rarity.EPIC)
     );
     public static final BlockItem INFECTED_GRASS = registerBlockItem(
             "infected_grass",
-            new InfectedBlock(INFECTED_BLOCK_SETTINGS.strength(2.000f)),
+            new InfectedBlock(INFECTED_BLOCK_SETTINGS),
             new Item.Settings().rarity(Rarity.EPIC)
     );
     public static final BlockItem INFECTED_CLAY = registerBlockItem(
             "infected_clay",
-            new InfectedBlock(INFECTED_BLOCK_SETTINGS.strength(2.000f)),
+            new InfectedBlock(INFECTED_BLOCK_SETTINGS),
             new Item.Settings().rarity(Rarity.EPIC)
     );
     public static final BlockItem INFECTED_SAND = registerBlockItem(
             "infected_sand",
-            new FallingInfectedBlock(INFECTED_BLOCK_SETTINGS.strength(2.000f)),
+            new FallingInfectedBlock(INFECTED_BLOCK_SETTINGS),
             new Item.Settings().rarity(Rarity.EPIC)
     );
     public static final BlockItem INFECTED_STONE = registerBlockItem(
             "infected_stone",
-            new InfectedBlock(INFECTED_BLOCK_SETTINGS.strength(2.000f)),
+            new InfectedBlock(INFECTED_BLOCK_SETTINGS),
             new Item.Settings().rarity(Rarity.EPIC)
     );
     public static final BlockItem INFECTED_COBBLESTONE = registerBlockItem(
             "infected_cobblestone",
-            new InfectedBlock(INFECTED_BLOCK_SETTINGS.strength(2.000f)),
+            new InfectedBlock(INFECTED_BLOCK_SETTINGS),
             new Item.Settings().rarity(Rarity.EPIC)
     );
     public static final BlockItem INFECTED_SANDSTONE = registerBlockItem(
             "infected_sandstone",
-            new InfectedBlock(INFECTED_BLOCK_SETTINGS.strength(2.000f)),
+            new InfectedBlock(INFECTED_BLOCK_SETTINGS),
             new Item.Settings().rarity(Rarity.EPIC)
+    );
+    public static final BlockItem INFECTED_OAK_SAPLING = registerBlockItem(
+            "infected_oak_sapling",
+            new SaplingBlock(BWSaplingGenerator.INFECTED_OAK_SAPLING_GEN, Block.Settings.copy(Blocks.OAK_SAPLING))
     );
 
     // rhodium blocks
@@ -102,15 +107,15 @@ public class BWBlocks {
     );
     public static final BlockItem PITAHAYA_TREE_BUTTON = registerBlockItem(
             "pitahaya_tree_button",
-            new ButtonBlock(BlockSetType.CHERRY, 30, Block.Settings.copy(Blocks.CHERRY_BUTTON))
+            new ButtonBlock(BWBlockSetType.PITAHAYA, 30, Block.Settings.copy(Blocks.CHERRY_BUTTON))
     );
     public static final BlockItem PITAHAYA_TREE_DOOR = registerBlockItem(
             "pitahaya_tree_door",
-            new DoorBlock(BlockSetType.CHERRY, Block.Settings.copy(Blocks.CHERRY_DOOR))
+            new DoorBlock(BWBlockSetType.PITAHAYA, Block.Settings.copy(Blocks.CHERRY_DOOR))
     );
     public static final BlockItem PITAHAYA_TREE_TRAPDOOR = registerBlockItem(
             "pitahaya_tree_trapdoor",
-            new TrapdoorBlock(BlockSetType.CHERRY, Block.Settings.copy(Blocks.CHERRY_TRAPDOOR))
+            new TrapdoorBlock(BWBlockSetType.PITAHAYA, Block.Settings.copy(Blocks.CHERRY_TRAPDOOR))
     );
     public static final BlockItem PITAHAYA_TREE_STAIRS = registerBlockItem(
             "pitahaya_tree_stairs",
@@ -118,7 +123,7 @@ public class BWBlocks {
     );
     public static final BlockItem PITAHAYA_TREE_PRESSURE_PLATE = registerBlockItem(
             "pitahaya_tree_pressure_plate",
-            new PressurePlateBlock(BlockSetType.CHERRY, Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE))
+            new PressurePlateBlock(BWBlockSetType.PITAHAYA, Block.Settings.copy(Blocks.CHERRY_PRESSURE_PLATE))
     );
     public static final BlockItem PITAHAYA_TREE_FENCE = registerBlockItem(
             "pitahaya_tree_fence",
@@ -126,7 +131,7 @@ public class BWBlocks {
     );
     public static final BlockItem PITAHAYA_TREE_FENCE_GATE = registerBlockItem(
             "pitahaya_tree_fence_gate",
-            new FenceGateBlock(WoodType.CHERRY, Block.Settings.copy(Blocks.CHERRY_FENCE_GATE))
+            new FenceGateBlock(BWWoodType.PITAHAYA, Block.Settings.copy(Blocks.CHERRY_FENCE_GATE))
     );
     public static final BlockItem PITAHAYA_TREE_LOG = registerBlockItem(
             "pitahaya_log",
@@ -148,13 +153,17 @@ public class BWBlocks {
             "pitahaya_leaves",
             new PitahayaLeaves(Block.Settings.copy(Blocks.CHERRY_LEAVES))
     );
+    public static final BlockItem PITAHAYA_TREE_SAPLING = registerBlockItem(
+            "pitahaya_tree_sapling",
+            new SaplingBlock(BWSaplingGenerator.PITAHAYA_TREE_SAPLING_GEN, Block.Settings.copy(Blocks.OAK_SAPLING))
+    );
 
     // other
     public static final BlockItem FORTIFIED_CRYING_OBSIDIAN = registerBlockItem(
             "fortified_crying_obsidian",
             new Block(Block.Settings.create().sounds(BlockSoundGroup.ANCIENT_DEBRIS).strength(65.0F, 2400.0F))
     );
-    public static final CustomPortalBlock BW_PORTAL_BLOCK = registerPortalBlock(
+    public static final CustomPortalBlock BW_PORTAL_BLOCK = registerBlock(
         "beautiful_world_portal",
         new CustomPortalBlock(Block.Settings.copy(Blocks.NETHER_PORTAL)) {
             @Override
@@ -179,11 +188,7 @@ public class BWBlocks {
         return Registry.register(Registries.ITEM, Identifier.of(BeautifulWorld.MOD_ID, name), new BlockItem(block, settings));
     }
 
-    private static Block registerBlock(String name, Block block) {
-        return Registry.register(Registries.BLOCK, Identifier.of(BeautifulWorld.MOD_ID, name), block);
-    }
-
-    private static CustomPortalBlock registerPortalBlock(String name, CustomPortalBlock block) {
+    private static <T extends Block> T registerBlock(String name, T block) {
         return Registry.register(Registries.BLOCK, Identifier.of(BeautifulWorld.MOD_ID, name), block);
     }
 

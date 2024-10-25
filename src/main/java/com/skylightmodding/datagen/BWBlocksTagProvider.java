@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -19,7 +20,6 @@ public class BWBlocksTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(BlockTags.LEAVES)
                 .add(BWBlocks.PITAHAYA_TREE_LEAVES.getBlock())
-//                .add(BWBlocks.FRUITFUL_PITAHAYA_TREE_LEAVES.getBlock())
         ;
 
         getOrCreateTagBuilder(BlockTags.PLANKS)
@@ -31,6 +31,13 @@ public class BWBlocksTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
 
         getOrCreateTagBuilder(BlockTags.LOGS)
+                .add(BWBlocks.PITAHAYA_TREE_LOG.getBlock())
+                .add(BWBlocks.STRIPPED_PITAHAYA_TREE_LOG.getBlock())
+                .add(BWBlocks.PITAHAYA_TREE_WOOD.getBlock())
+                .add(BWBlocks.STRIPPED_PITAHAYA_TREE_WOOD.getBlock())
+        ;
+
+        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
                 .add(BWBlocks.PITAHAYA_TREE_LOG.getBlock())
                 .add(BWBlocks.STRIPPED_PITAHAYA_TREE_LOG.getBlock())
                 .add(BWBlocks.PITAHAYA_TREE_WOOD.getBlock())
@@ -110,6 +117,12 @@ public class BWBlocksTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
 
         getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
+                .add(BWBlocks.PITAHAYA_TREE_LEAVES.getBlock())
+        ;
+
+        getOrCreateTagBuilder(BlockTags.DIRT)
+                .add(BWBlocks.INFECTED_DIRT.getBlock())
+                .add(BWBlocks.INFECTED_GRASS.getBlock())
         ;
     }
 }

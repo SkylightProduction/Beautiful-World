@@ -69,7 +69,9 @@
         ],
         [],
         [],
-        [],
+        [
+            "beautifulworld:place_infected_oak"
+        ],
         []
     ],
     "has_precipitation": true,

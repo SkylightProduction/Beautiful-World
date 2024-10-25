@@ -42,7 +42,7 @@ public class OverloudAxe extends AxeItem {
         stack.set(BWDataComponents.OVERLOUD_AXE_STIPULATION, stipulation);
         stack.set(DataComponentTypes.CUSTOM_MODEL_DATA, customModelData);
 
-        user.sendMessage(Text.translatable("message.beautifulworld.overloud_axe.change"), true);
+        user.sendMessage(Text.translatable("overlay_message.beautifulworld.overloud_axe.change"), true);
 
         return TypedActionResult.success(stack);
     }
@@ -54,7 +54,7 @@ public class OverloudAxe extends AxeItem {
             return super.useOnBlock(context);
         }
 
-        context.getPlayer().sendMessage(Text.translatable("message.beautifulworld.overloud_axe.fail").formatted(Formatting.RED), true);
+        context.getPlayer().sendMessage(Text.translatable("overlay_message.beautifulworld.overloud_axe.fail").formatted(Formatting.RED), true);
 
         return ActionResult.FAIL;
     }

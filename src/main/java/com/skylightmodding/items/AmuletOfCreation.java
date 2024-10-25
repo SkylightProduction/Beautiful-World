@@ -49,7 +49,7 @@ public class AmuletOfCreation extends Item {
             ++stage;
         } else if (stage == 2 && biome.isIn(BWTags.Biomes.AMULET_OF_CREATION_OVERWORLD_STAGE_BIOMES)) {
             ++stage;
-        } else if (stage == 3 && biome.isIn(BWTags.Biomes.AMULET_OF_CREATION_FINAL_STAGE_BIOMES) && world.getDimensionEntry().isIn(BWTags.DimensionTypes.AMULET_OF_CREATION_FINAL_STAGE_DIMENSIONS)) {
+        } else if (stage == 3 && biome.isIn(BWTags.Biomes.AMULET_OF_CREATION_FINAL_STAGE_BIOMES)) {
             ++stage;
         }
 
@@ -70,7 +70,7 @@ public class AmuletOfCreation extends Item {
             case 1 -> Text.translatable("item.beautifulworld.amulet_of_creation.stage.nether");
             case 2 -> Text.translatable("item.beautifulworld.amulet_of_creation.stage.end");
             case 3 -> Text.translatable("item.beautifulworld.amulet_of_creation.stage.overworld");
-            case 4 -> Text.translatable("item.beautifulworld.amulet_of_creation.stage.sculk");
+            case 4 -> Text.translatable("item.beautifulworld.amulet_of_creation.stage.korg");
             default -> Text.translatable("item.beautifulworld.amulet_of_creation.stage.error");
         };
     }

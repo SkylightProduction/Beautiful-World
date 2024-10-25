@@ -6,7 +6,6 @@ import com.skylightmodding.init.BWItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 
-import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 
@@ -36,7 +35,6 @@ public class BWItemsTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.LEAVES)
                 .add(BWBlocks.PITAHAYA_TREE_LEAVES)
-//                .add(BWBlocks.FRUITFUL_PITAHAYA_TREE_LEAVES)
         ;
 
         getOrCreateTagBuilder(ItemTags.FOOT_ARMOR)
@@ -57,6 +55,11 @@ public class BWItemsTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.TRIM_TEMPLATES)
                 .add(BWItems.OVERLOUD_UPGRADE_SMITHING_TEMPLATE)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.DIRT)
+                .add(BWBlocks.INFECTED_DIRT)
+                .add(BWBlocks.INFECTED_GRASS)
         ;
     }
 }

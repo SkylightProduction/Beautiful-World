@@ -75,7 +75,7 @@
                                     ]
                                 }
                             ],
-                            "name": "minecraft:oak_leaves"
+                            "name": "beautifulworld:pitahaya_leaves"
                         },
                         {
                             "type": "minecraft:item",
@@ -94,7 +94,7 @@
                                     "enchantment": "minecraft:fortune"
                                 }
                             ],
-                            "name": "minecraft:oak_sapling"
+                            "name": "beautifulworld:pitahaya_tree_sapling"
                         }
                     ]
                 }

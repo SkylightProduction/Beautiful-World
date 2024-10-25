@@ -12,7 +12,7 @@ import net.minecraft.world.dimension.DimensionType;
 
 public class BWTags {
     public static class Blocks {
-        public static final TagKey<Block> PITAHAYA_TREE_LOGS = createTag("pitahaya_tree_logs_blocks");
+        public static final TagKey<Block> PITAHAYA_TREE_LOGS = createTag("pitahaya_tree_log_blocks");
         public static final TagKey<Block> MULTITOOL_MINEABLE = createTag("multitool_mineable");
         public static final TagKey<Block> BASE_STONE_END = createTag("base_stone_end");
         public static final TagKey<Block> NOT_INFECTIBLE_BLOCKS = createTag("not_infectible_blocks");
@@ -45,7 +45,6 @@ public class BWTags {
     }
 
     public static class DimensionTypes {
-        public static final TagKey<DimensionType> AMULET_OF_CREATION_FINAL_STAGE_DIMENSIONS = createTag("amulet_of_creation_final_stage_dimensions");
 
         private static TagKey<DimensionType> createTag(String name) {
             return TagKey.of(RegistryKeys.DIMENSION_TYPE, Identifier.of(BeautifulWorld.MOD_ID, name));

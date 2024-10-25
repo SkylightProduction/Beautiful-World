@@ -1,11 +1,9 @@
-package com.skylightmodding.items.components;
+package com.skylightmodding.init;
 
 import com.skylightmodding.BeautifulWorld;
-import com.skylightmodding.init.BWItems;
 
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;

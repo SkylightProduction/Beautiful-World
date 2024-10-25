@@ -3,10 +3,7 @@ package com.skylightmodding.init;
 import com.skylightmodding.BeautifulWorld;
 import com.skylightmodding.items.*;
 import com.skylightmodding.items.types.*;
-import com.skylightmodding.items.components.BWFoodComponents;
 import com.skylightmodding.items.components.ToolModifications;
-import com.skylightmodding.items.components.BWArmorMaterial;
-import com.skylightmodding.items.components.BWToolMaterials;
 import com.skylightmodding.misc.BWTags;
 import com.skylightmodding.misc.TooltipTemplates;
 
@@ -97,6 +94,11 @@ public class BWItems {
         "rhodium_sword",
         new SwordItem(BWToolMaterials.RHODIUM, new Item.Settings().rarity(Rarity.RARE).attributeModifiers(SwordItem.createAttributeModifiers(BWToolMaterials.RHODIUM, 5, -2.4F))) {
             @Override
+            public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+                tooltip.add(TooltipTemplates.CAN_TORCH_THE_ENEMY);
+            }
+
+            @Override
             public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
                 super.postHit(stack, target, attacker);
                 ToolModifications.torchTheEnemy((byte)6, target);
@@ -108,6 +110,21 @@ public class BWItems {
     public static final Item RHODIUM_MULTITOOL = registerItem(
         "rhodium_multitool",
         new MultiToolItem(BWToolMaterials.RHODIUM, new Item.Settings().rarity(Rarity.RARE).component(BWDataComponents.IS_FIERY, true).attributeModifiers(MultiToolItem.createAttributeModifiers(BWToolMaterials.RHODIUM, 2.5f, -2.8F))) {
+            // todo: добавить тултипы для родиевого меча и мультутула, кристаллитовых инструментов
+            @Override
+            public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+                tooltip.add(TooltipTemplates.HAS_AUTOSMELTING);
+                tooltip.add(TooltipTemplates.CAN_TORCH_THE_ENEMY);
+            }
+
+            @Override
+            public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+                super.postHit(stack, target, attacker);
+                ToolModifications.torchTheEnemy((byte)6, target);
+
+                return true;
+            }
+
             @Override
             public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
                 super.postMine(stack, world, state, pos, miner);

@@ -1,6 +1,7 @@
-// 1.21.1	2024-10-12T22:58:05.9396043	Beautiful World/Tags for minecraft:item
+// 1.21.1	2024-10-25T02:29:23.8488537	Beautiful World/Tags for minecraft:item
 bdf24f4b7c0c331f03012b5fd1460feb9b5846e6 data\minecraft\tags\item\chest_armor.json
 1827c867d97274c1529046677dc8eeefca204658 data\minecraft\tags\item\trim_templates.json
+5aecfb959b726598eb2056b85b8e2c159e72a7f4 data\minecraft\tags\item\dirt.json
 dedadbd4e678077f5455fed34c369af42f02ef6d data\minecraft\tags\item\planks.json
 dabd0c156b7bdf29229a7b3d1c90652e717fa559 data\minecraft\tags\item\buttons.json
 d3b490e69a9b5cbaa2cc7fb6e2f1256279e1d188 data\minecraft\tags\item\leaves.json

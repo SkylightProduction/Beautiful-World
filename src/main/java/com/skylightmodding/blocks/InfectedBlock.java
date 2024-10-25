@@ -5,17 +5,16 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
-
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.event.GameEvent;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 import com.skylightmodding.misc.BWTags;
 import com.skylightmodding.init.BWStatusEffects;
-import net.minecraft.world.event.GameEvent;
 
-import static com.skylightmodding.blocks.components.BWHashMaps.INFECTED_BLOCKS;
+import static com.skylightmodding.init.BWHashMaps.INFECTED_BLOCKS;
 
 public class InfectedBlock extends Block {
     public InfectedBlock(Block.Settings settings) {
@@ -33,9 +32,9 @@ public class InfectedBlock extends Block {
         }
     }
 
-    @Override
+   /*@Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        /* тестовый набросок системы заражения */
+        // тестовый набросок системы заражения
 
         int randomNum = random.nextBetween(1, 225);
 
@@ -52,7 +51,7 @@ public class InfectedBlock extends Block {
         } else if (randomNum == 189) {
             this.replaceBlock(world, pos.north(1));
         }
-    }
+    }*/
 
     private void replaceBlock(World world, BlockPos position) {
         try {

@@ -35,9 +35,9 @@ import java.util.function.Predicate;
 
 public class MultiToolItem extends MiningToolItem {
     /* я сам не понял, как это работает */
-    /**/ private static final Map<Block, BlockState> PATH_STATES = ShovelItemAccessor.getPathStates();  /* shovel */
-    /**/ private static final Map<Block, Block> STRIPPED_BLOCKS = AxeItemAccessor.getStrippedBlocks();  /* axe */
-    /**/ private static final Map<Block, Pair<Predicate<ItemUsageContext>, Consumer<ItemUsageContext>>> TILLING_ACTIONS = HoeItemAccessor.getTillingActions();  /* hoe */
+    /**/ protected static final Map<Block, Block> STRIPPED_BLOCKS = AxeItemAccessor.getStrippedBlocks();  /* axe */
+    /**/ protected static final Map<Block, BlockState> PATH_STATES = ShovelItemAccessor.getPathStates();  /* shovel */
+    /**/ protected static final Map<Block, Pair<Predicate<ItemUsageContext>, Consumer<ItemUsageContext>>> TILLING_ACTIONS = HoeItemAccessor.getTillingActions();  /* hoe */
 
     public MultiToolItem(ToolMaterial material, Item.Settings settings) {
         super(material, BWTags.Blocks.MULTITOOL_MINEABLE, settings);
@@ -62,7 +62,7 @@ public class MultiToolItem extends MiningToolItem {
         }
     }
 
-    private ActionResult useOnBlockHoe(ItemUsageContext context, World world, BlockPos blockPos, PlayerEntity playerEntity) {
+    protected ActionResult useOnBlockHoe(ItemUsageContext context, World world, BlockPos blockPos, PlayerEntity playerEntity) {
         Pair<Predicate<ItemUsageContext>, Consumer<ItemUsageContext>> pair = (Pair)TILLING_ACTIONS.get(world.getBlockState(blockPos).getBlock());
         if (pair == null) {
             return ActionResult.PASS;
@@ -85,12 +85,12 @@ public class MultiToolItem extends MiningToolItem {
         }
     }
 
-    private ActionResult useOnBlockShovel(ItemUsageContext context, World world, BlockPos blockPos, PlayerEntity playerEntity) {
+    protected ActionResult useOnBlockShovel(ItemUsageContext context, World world, BlockPos blockPos, PlayerEntity playerEntity) {
         BlockState blockState = world.getBlockState(blockPos);
         if (context.getSide() == Direction.DOWN) {
             return ActionResult.PASS;
         } else {
-            BlockState blockState2 = (BlockState)PATH_STATES.get(blockState.getBlock());
+            BlockState blockState2 = PATH_STATES.get(blockState.getBlock());
             BlockState blockState3 = null;
             if (blockState2 != null && world.getBlockState(blockPos.up()).isAir()) {
                 world.playSound(playerEntity, blockPos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
@@ -120,7 +120,7 @@ public class MultiToolItem extends MiningToolItem {
         }
     }
 
-    private ActionResult useOnBlockAxe(ItemUsageContext context, World world, BlockPos blockPos, PlayerEntity playerEntity) {
+    protected ActionResult useOnBlockAxe(ItemUsageContext context, World world, BlockPos blockPos, PlayerEntity playerEntity) {
         if (shouldCancelStripAttempt(context)) {
             return ActionResult.PASS;
         } else {
@@ -133,8 +133,8 @@ public class MultiToolItem extends MiningToolItem {
                     Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity)playerEntity, blockPos, itemStack);
                 }
 
-                world.setBlockState(blockPos, (BlockState)optional.get(), 11);
-                world.emitGameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Emitter.of(playerEntity, (BlockState)optional.get()));
+                world.setBlockState(blockPos, optional.get(), 11);
+                world.emitGameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Emitter.of(playerEntity, optional.get()));
                 if (playerEntity != null) {
                     itemStack.damage(1, playerEntity, LivingEntity.getSlotForHand(context.getHand()));
                 }
@@ -144,12 +144,12 @@ public class MultiToolItem extends MiningToolItem {
         }
     }
 
-    private static boolean shouldCancelStripAttempt(ItemUsageContext context) {
+    protected static boolean shouldCancelStripAttempt(ItemUsageContext context) {
         PlayerEntity playerEntity = context.getPlayer();
         return context.getHand().equals(Hand.MAIN_HAND) && playerEntity.getOffHandStack().isOf(Items.SHIELD) && !playerEntity.shouldCancelInteraction();
     }
 
-    private Optional<BlockState> tryStrip(World world, BlockPos pos, @Nullable PlayerEntity player, BlockState state) {
+    protected Optional<BlockState> tryStrip(World world, BlockPos pos, @Nullable PlayerEntity player, BlockState state) {
         Optional<BlockState> optional = this.getStrippedState(state);
         if (optional.isPresent()) {
             world.playSound(player, pos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0F, 1.0F);
@@ -175,8 +175,8 @@ public class MultiToolItem extends MiningToolItem {
         }
     }
 
-    private Optional<BlockState> getStrippedState(BlockState state) {
-        return Optional.ofNullable((Block)STRIPPED_BLOCKS.get(state.getBlock())).map((block) -> {
+    protected Optional<BlockState> getStrippedState(BlockState state) {
+        return Optional.ofNullable(STRIPPED_BLOCKS.get(state.getBlock())).map((block) -> {
             return (BlockState)block.getDefaultState().with(PillarBlock.AXIS, (Direction.Axis)state.get(PillarBlock.AXIS));
         });
     }

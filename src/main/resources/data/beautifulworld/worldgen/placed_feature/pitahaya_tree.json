@@ -1,0 +1,17 @@
+{
+    "feature": "beautifulworld:pitahaya_tree",
+    "placement": [
+        {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+                "type": "minecraft:would_survive",
+                "state": {
+                    "Name": "beautifulworld:pitahaya_tree_sapling",
+                    "Properties": {
+                        "stage": "0"
+                    }
+                }
+            }
+        }
+    ]
+}

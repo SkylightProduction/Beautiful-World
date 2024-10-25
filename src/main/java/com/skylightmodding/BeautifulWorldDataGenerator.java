@@ -1,7 +1,7 @@
 package com.skylightmodding;
 
 import com.skylightmodding.datagen.*;
-import com.skylightmodding.worldgen.dimensions.BeautifulWorldDim;
+import com.skylightmodding.worldgen.dimensions.BeautifulWorldDimension;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -23,6 +23,6 @@ public class BeautifulWorldDataGenerator implements DataGeneratorEntrypoint {
 
 	@Override
 	public void buildRegistry(RegistryBuilder registryBuilder) {
-		registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, BeautifulWorldDim::BWType);
+		registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, BeautifulWorldDimension::BWType);
 	}
 }
