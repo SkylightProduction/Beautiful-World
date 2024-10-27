@@ -1,5 +1,6 @@
-package com.skylightmodding.init;
+package com.skylightmodding.items.components;
 
+import com.skylightmodding.init.BWStatusEffects;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 

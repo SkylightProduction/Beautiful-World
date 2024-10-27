@@ -23,7 +23,7 @@ public class BeautifulWorld implements ModInitializer {
 		BWPlacedFeatures.registerModPlacedFeatures();
 		BWConfiguredFeatures.registerModConfiguredFeatures();
 		BWTreesHell.registerTreesHell();
-		BWDataComponents.registerModDC();
+		BWDataComponents.registerModDataComponents();
 		BWItemGroups.registerItemsGroups();
 		BWBiomes.registerModBiomes();
 		BeautifulWorldDimension.registerPortal();

@@ -1,5 +1,6 @@
-package com.skylightmodding.init;
+package com.skylightmodding.items.components;
 
+import com.skylightmodding.init.BWItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;

@@ -34,8 +34,7 @@ public class BWModelsProvider extends FabricModelProvider {
         blockStateModelGenerator.registerLog(BWBlocks.STRIPPED_PITAHAYA_TREE_LOG.getBlock())
                 .log(BWBlocks.STRIPPED_PITAHAYA_TREE_LOG.getBlock())
                 .wood(BWBlocks.STRIPPED_PITAHAYA_TREE_WOOD.getBlock());
-//        blockStateModelGenerator.registerSimpleCubeAll(BWBlocks.PITAHAYA_TREE_LEAVES.getBlock());
-//        blockStateModelGenerator.registerSimpleCubeAll(BWBlocks.FRUITFUL_PITAHAYA_TREE_LEAVES.getBlock());
+        blockStateModelGenerator.registerTintableCross(BWBlocks.PITAHAYA_TREE_SAPLING.getBlock(), BlockStateModelGenerator.TintType.NOT_TINTED);
 
         // overloud
         blockStateModelGenerator.registerCubeAllModelTexturePool(BWBlocks.OVERLOUD_BLOCK.getBlock());
@@ -75,9 +74,12 @@ public class BWModelsProvider extends FabricModelProvider {
         // korg
         itemModelGenerator.register(BWItems.KORG_FRAGMENT, Models.GENERATED);
 
+        // pitahaya
+        itemModelGenerator.register(BWItems.PITAHAYA, Models.GENERATED);
+//        itemModelGenerator.register(BWBlocks.PITAHAYA_TREE_SAPLING.getBlock().asItem(), Models.GENERATED);
+
         // other
         itemModelGenerator.register(BWItems.NETHERITE_MULTI_TOOL, Models.HANDHELD);
-        itemModelGenerator.register(BWItems.PITAHAYA, Models.GENERATED);
         itemModelGenerator.register(BWItems.CRYSTALLITE, Models.GENERATED);
         itemModelGenerator.register(BWItems.BAIKAL_WATER, Models.GENERATED);
         itemModelGenerator.register(BWItems.BEGLOV_SHOVEL, Models.HANDHELD);

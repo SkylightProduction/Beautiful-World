@@ -4,6 +4,8 @@ import com.skylightmodding.BeautifulWorld;
 import com.skylightmodding.blocks.FallingInfectedBlock;
 import com.skylightmodding.blocks.InfectedBlock;
 import com.skylightmodding.blocks.PitahayaLeaves;
+import com.skylightmodding.blocks.components.BWBlockSetType;
+import com.skylightmodding.blocks.components.BWWoodType;
 import com.skylightmodding.worldgen.tree.BWSaplingGenerator;
 
 import net.fabricmc.api.EnvType;
@@ -134,23 +136,23 @@ public class BWBlocks {
             new FenceGateBlock(BWWoodType.PITAHAYA, Block.Settings.copy(Blocks.CHERRY_FENCE_GATE))
     );
     public static final BlockItem PITAHAYA_TREE_LOG = registerBlockItem(
-            "pitahaya_log",
+            "pitahaya_tree_log",
             new PillarBlock(Block.Settings.copy(Blocks.CHERRY_LOG))
     );
     public static final BlockItem PITAHAYA_TREE_WOOD = registerBlockItem(
-            "pitahaya_wood",
+            "pitahaya_tree_wood",
             new PillarBlock(Block.Settings.copy(Blocks.CHERRY_WOOD))
     );
     public static final BlockItem STRIPPED_PITAHAYA_TREE_LOG = registerBlockItem(
-            "stripped_pitahaya_log",
+            "stripped_pitahaya_tree_log",
             new PillarBlock(Block.Settings.copy(Blocks.STRIPPED_CHERRY_LOG))
     );
     public static final BlockItem STRIPPED_PITAHAYA_TREE_WOOD = registerBlockItem(
-            "stripped_pitahaya_wood",
+            "stripped_pitahaya_tree_wood",
             new PillarBlock(Block.Settings.copy(Blocks.STRIPPED_CHERRY_WOOD))
     );
     public static final BlockItem PITAHAYA_TREE_LEAVES = registerBlockItem(
-            "pitahaya_leaves",
+            "pitahaya_tree_leaves",
             new PitahayaLeaves(Block.Settings.copy(Blocks.CHERRY_LEAVES))
     );
     public static final BlockItem PITAHAYA_TREE_SAPLING = registerBlockItem(

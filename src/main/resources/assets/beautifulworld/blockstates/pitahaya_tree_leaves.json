@@ -1,9 +1,9 @@
 {
     "variants": {
-        "with_pitahaya=1": {
+        "with_pitahaya=true": {
             "model": "beautifulworld:block/pitahaya_leaves2"
         },
-        "with_pitahaya=0": {
+        "with_pitahaya=false": {
             "model": "beautifulworld:block/pitahaya_leaves1"
         }
     }

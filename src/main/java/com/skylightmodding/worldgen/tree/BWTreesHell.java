@@ -19,15 +19,15 @@ public class BWTreesHell {
     public static TrunkPlacerType<PitahayaTreeTrunkPlacer> PITAHAYA_TREE_TRUNK = registerTrunk("pitahaya_tree_trunk_placer", PitahayaTreeTrunkPlacer.CODEC);
 
 
-    public static void registerTreesHell() {
-        BeautifulWorld.LOGGER.info("Registering Trees Hell from " + BeautifulWorld.MOD_ID);
-    }
-
     private static <P extends FoliagePlacer> FoliagePlacerType<P> registerFoliage(String name, MapCodec<P> codec) {
         return Registry.register(Registries.FOLIAGE_PLACER_TYPE, Identifier.of(BeautifulWorld.MOD_ID, name), new FoliagePlacerType(codec));
     }
 
     private static <P extends TrunkPlacer> TrunkPlacerType<P> registerTrunk(String name, MapCodec<P> codec) {
         return Registry.register(Registries.TRUNK_PLACER_TYPE, Identifier.of(BeautifulWorld.MOD_ID, name), new TrunkPlacerType(codec));
+    }
+
+    public static void registerTreesHell() {
+        BeautifulWorld.LOGGER.info("Registering Trees Hell from " + BeautifulWorld.MOD_ID);
     }
 }

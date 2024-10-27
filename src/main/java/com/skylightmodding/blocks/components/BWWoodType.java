@@ -1,4 +1,4 @@
-package com.skylightmodding.init;
+package com.skylightmodding.blocks.components;
 
 import net.minecraft.block.WoodType;
 import net.minecraft.sound.BlockSoundGroup;

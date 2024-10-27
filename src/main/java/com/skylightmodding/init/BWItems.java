@@ -2,6 +2,8 @@ package com.skylightmodding.init;
 
 import com.skylightmodding.BeautifulWorld;
 import com.skylightmodding.items.*;
+import com.skylightmodding.items.components.BWFoodComponents;
+import com.skylightmodding.items.components.BWToolMaterials;
 import com.skylightmodding.items.types.*;
 import com.skylightmodding.items.components.ToolModifications;
 import com.skylightmodding.misc.BWTags;
@@ -110,7 +112,6 @@ public class BWItems {
     public static final Item RHODIUM_MULTITOOL = registerItem(
         "rhodium_multitool",
         new MultiToolItem(BWToolMaterials.RHODIUM, new Item.Settings().rarity(Rarity.RARE).component(BWDataComponents.IS_FIERY, true).attributeModifiers(MultiToolItem.createAttributeModifiers(BWToolMaterials.RHODIUM, 2.5f, -2.8F))) {
-            // todo: добавить тултипы для родиевого меча и мультутула, кристаллитовых инструментов
             @Override
             public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
                 tooltip.add(TooltipTemplates.HAS_AUTOSMELTING);
@@ -177,7 +178,7 @@ public class BWItems {
 
 
 
-    public static Item registerItem(String name, Item item) {
+    private static <T extends Item> T registerItem(String name, T item) {
         return Registry.register(Registries.ITEM, Identifier.of(BeautifulWorld.MOD_ID, name), item);
     }
 

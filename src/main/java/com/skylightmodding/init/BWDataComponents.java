@@ -24,7 +24,7 @@ public class BWDataComponents {
         return Registry.register(Registries.DATA_COMPONENT_TYPE, Identifier.of(BeautifulWorld.MOD_ID, name), ComponentType.<Boolean>builder().codec(Codec.BOOL).build());
     }
 
-    public static void registerModDC() {
+    public static void registerModDataComponents() {
         BeautifulWorld.LOGGER.info("Registering data components from "+BeautifulWorld.MOD_ID);
     }
 }
